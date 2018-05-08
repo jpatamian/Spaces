@@ -38,9 +38,13 @@ class PlacesIndexContainer extends Component {
     })
 
     return(
-      <div className="row">
-        {places}
+      <div className="row text-center">
+        <div className = "row">
+          <h1 className = 'page-header' > Find Your Spaces </h1>
+
+        <div>{places}</div>
       </div>
+    </div>
     )
   }
 }

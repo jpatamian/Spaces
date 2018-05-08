@@ -15,7 +15,45 @@
  *= require foundation_and_overrides
 
  */
+
+ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+ .myLink {display: none}
+
 .place-photo {
-  width: 200px;
+  width: 5em;
 
 }
+
+.header-img{
+  background-image: url("images/travel-protection-header.jpg");
+  height: 18em;
+  max-width: 67em;
+}
+
+.page-header {
+  text-align: center;
+}
+
+.sign {
+  color: #f44336;
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+/*
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.name {
+  background-color: black;
+}
+
+.column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+} */

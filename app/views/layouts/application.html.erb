@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Spaces</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <%= stylesheet_link_tag 'application', media: 'all' %>
 
-  <%= stylesheet_link_tag "css/foundation.css" %>
-  <%= stylesheet_link_tag "css/app.css" %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_link_tag "https://www.w3schools.com/w3css/4/w3.css" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
+
 
   <%= csrf_meta_tags %>
-
-  <h1> Header </h1>
 </head>
-<body>
+<header class="header-img w3-display-container w3-content w3-hide-small" style="max-width:1500px">
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Spaces</a></h1>
-      </li>
-    </ul>
-
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
+  <nav>
+    <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+    <a href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-map-marker w3-margin-right"></i>Spaces</b></a>
+    <a href="/" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
+    <%- if current_user -%>
+      <a class="sign"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </a>
+    <%- else -%>
+        <a class="sign" <%= link_to 'Sign Up', new_user_registration_path %></a>
+        <a class="sign" <%= link_to 'Sign In', new_user_session_path %></a>
+    <% end %>
+    </div>
   </nav>
 
-  <%- flash.each do |key, value| -%>
+
+  <!-- <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
     </div>
-  <%- end -%>
+  <%- end -%> -->
+
+  <body>
+  <div class="w3-content" style="max-width:1100px;">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 
   <%= yield %>
+
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
 
 </body>
+
+
+<footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+  <h5>Find Us On</h5>
+  <div class="w3-xlarge w3-padding-16">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
 </html>
