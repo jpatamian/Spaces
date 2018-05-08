@@ -26,6 +26,8 @@ class PlacesIndexContainer extends Component {
   }
 
   render() {
+
+
     let places = this.state.places.map(place => {
 
       return(

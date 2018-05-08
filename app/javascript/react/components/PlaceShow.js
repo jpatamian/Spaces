@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 const PlaceInfo = (props) => {
 
+
+
   return(
     <div className="row collapse">
       <div className="columns small-12">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PlaceShow from '../components/PlaceShow'
-import Lightbox from 'react-images';
+import MapContainer from "./MapContainer";
 
 
 class PlacesShowContainer extends Component {
@@ -32,6 +32,7 @@ class PlacesShowContainer extends Component {
   }
 
   render() {
+
     return(
     <div>
       <h1 className = 'place-photo'> <img src= {this.state.place.place_photo} /> </h1>
@@ -41,6 +42,8 @@ class PlacesShowContainer extends Component {
           <p className="address">Location: {this.state.place.address}, {this.state.place.city}, {this.state.place.state}, {this.state.place.zip}</p>
           <p className="description">Description: {this.state.place.description}</p>
       </div>
+
+      <MapContainer />
     </div>
     )
   }
