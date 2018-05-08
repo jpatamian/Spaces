@@ -11,6 +11,7 @@ const App = (props) => {
       <Route path='/'>
       <IndexRoute component={PlacesIndexContainer} />
       <Route path="/places/:id" component={PlacesShowContainer}/>
+      <Route path="*" component={PlacesIndexContainer} />
       </Route>
     </Router>
   )

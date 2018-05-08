@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import PlaceShow from '../components/PlaceShow'
+import Lightbox from 'react-images';
 
 
 class PlacesShowContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      place: {}
+      place: {},
+      photos: [],
+      placeId: this.props.params.id
     }
   }
 
   componentDidMount() {
-  let placeId = this.props.params.id
+  let placeId = this.state.placeId
 
   fetch(`/api/v1/places/${placeId}`)
     .then(response => {
@@ -29,17 +32,15 @@ class PlacesShowContainer extends Component {
   }
 
   render() {
-    debugger
-
     return(
-      <div>
-      <PlaceShow
-        id={this.state.place.id}
-        place = {this.state.place}
-        name={this.state.place.name}
-        photo={this.state.place.photo}
-        description = {this.state.place.description}
-      />
+    <div>
+      <h1 className = 'place-photo'> <img src= {this.state.place.place_photo} /> </h1>
+
+      <h2>{this.state.place.name}</h2>
+      <div className="place-info">
+          <p className="address">Location: {this.state.place.address}, {this.state.place.city}, {this.state.place.state}, {this.state.place.zip}</p>
+          <p className="description">Description: {this.state.place.description}</p>
+      </div>
     </div>
     )
   }

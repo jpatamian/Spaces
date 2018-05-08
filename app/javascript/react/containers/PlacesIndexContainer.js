@@ -27,12 +27,12 @@ class PlacesIndexContainer extends Component {
 
   render() {
     let places = this.state.places.map(place => {
+
       return(
         <PlaceTile
           key = {place.id}
           id = {place.id}
           name = {place.name}
-          photo = {place.place_photo}
         />
       )
     })
