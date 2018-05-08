@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
+  resources :places
 
   devise_for :users
 
@@ -9,6 +10,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :places
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
