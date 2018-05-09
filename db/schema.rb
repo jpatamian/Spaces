@@ -17,11 +17,7 @@ ActiveRecord::Schema.define(version: 2018_05_07_181205) do
 
   create_table "places", force: :cascade do |t|
     t.string "name", null: false
-    t.string "address", null: false
-    t.string "city", null: false
-    t.string "state", null: false
-    t.string "country", null: false
-    t.string "zipcode", null: false
+    t.string "location", null: false
     t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

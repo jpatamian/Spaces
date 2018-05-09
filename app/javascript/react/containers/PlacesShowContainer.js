@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PlaceShow from '../components/PlaceShow'
 import MapContainer from "./MapContainer";
-
+import {Link} from 'react-router'
 
 class PlacesShowContainer extends Component {
   constructor(props) {
@@ -39,11 +39,10 @@ class PlacesShowContainer extends Component {
 
       <h2>{this.state.place.name}</h2>
       <div className="place-info">
-          <p className="address">Location: {this.state.place.address}, {this.state.place.city}, {this.state.place.state}, {this.state.place.zip}</p>
+          <p className="address">Location: {this.state.place.location}</p>
           <p className="description">Description: {this.state.place.description}</p>
       </div>
 
-      <MapContainer />
     </div>
     )
   }
