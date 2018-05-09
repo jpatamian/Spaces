@@ -1,5 +1,5 @@
 class Api::V1::PlacesController < ApplicationController
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def index
     render json: Place.all
@@ -10,14 +10,8 @@ class Api::V1::PlacesController < ApplicationController
   end
 
   def create
-     place = Place.new(place_params)
-     if current_user
-       place.user = current_user
-     else
-       place.user_id = 1
-     end
-
-     if place.save
+     @place = Place.new(place_params)
+     if @place.save
        render json: Place.all
      else
        render json: {message: "Did not save."}
@@ -27,7 +21,7 @@ class Api::V1::PlacesController < ApplicationController
  private
 
    def place_params
-      params.require(:place).permit(:name, :address, :city, :state, :country, :description)
+      params.require(:place).permit(:name, :address, :city, :state, :country, :zipcode, :description)
    end
 
  end

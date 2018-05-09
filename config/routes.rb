@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
-  resources :places
+  resources :places, only: [:index]
 
   devise_for :users
 
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       resources :places
     end
   end
+
+  get "*path", to: "static_pages#index"
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
