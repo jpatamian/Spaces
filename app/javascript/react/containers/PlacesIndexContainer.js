@@ -42,6 +42,12 @@ class PlacesIndexContainer extends Component {
     return(
       <div className="row text-center">
         <div className = "row">
+          <div className ="middlenav">
+            <a id = 'placenav' href="#about">About</a>
+            <a id = 'placenav' href="#services">Services</a>
+            <a id = 'placenav' href="#clients">Clients</a>
+            <a id = 'placenav' href="#contact">Contact</a>
+          </div>
           <h1 className = 'page-header' > Find Your Spaces </h1>
 
         <div>{places}</div>

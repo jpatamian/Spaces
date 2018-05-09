@@ -23,14 +23,16 @@
     <a href='/places/new' class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Add A Place</a>
 
     <%- if current_user -%>
-      <a class="sign"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </a>
+      <a class="w3-bar-item w3-button w3-text-red w3-hover-red" <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </a>
     <%- else -%>
-        <a class="sign" <%= link_to 'Sign Up', new_user_registration_path %></a>
-        <a class="sign" <%= link_to 'Sign In', new_user_session_path %></a>
+        <a class="w3-bar-item w3-button w3-text-red w3-hover-red" <%= link_to 'Sign Up', new_user_registration_path %></a>
+        <a class="w3-bar-item w3-button w3-text-red w3-hover-red" <%= link_to 'Sign In', new_user_session_path %></a>
     <% end %>
 
     </div>
   </nav>
+
+
 
 
   <!-- <%- flash.each do |key, value| -%>
@@ -40,7 +42,8 @@
   <%- end -%> -->
 
   <body>
-  <div class="w3-content" style="max-width:1100px;">
+
+  <div class=" w3-content" style="max-width:1100px;">
 <br/>
 <br/>
 <br/>

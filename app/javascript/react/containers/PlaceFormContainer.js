@@ -131,6 +131,8 @@ class PlaceFormContainer extends Component {
           description: this.state.description
       }
       this.addPlace(formPayload)
+    }else{
+      alert("Please Fill Out All Fields")
     }
   }
 
