@@ -19,10 +19,16 @@
  body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
  .myLink {display: none}
 
-.place-photo {
-  width: 5em;
+.address {
+
 
 }
+
+.description {
+
+
+}
+
 
 .header-img{
   background-image: url("images/travel-protection-header.jpg");
@@ -77,21 +83,3 @@
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
-/*
-
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
-
-.name {
-  background-color: black;
-}
-
-.column {
-    flex: 25%;
-    max-width: 25%;
-    padding: 0 4px;
-} */

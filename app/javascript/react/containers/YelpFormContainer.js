@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { browserHistory, withRouter } from 'react-router'
 import TextField from '../components/TextField'
+import YelpTile from '../components/YelpTile'
 
 class YelpFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
       term: '',
-      location: ''
+      location: '',
+      data: []
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
@@ -24,17 +26,23 @@ class YelpFormContainer extends Component {
     this.setState({ location: event.target.value })
   }
 
-  addSearch(submission) {
-    fetch(`http://localhost:3000/api/v1/yelps`, {
-      method: 'GET',
+  addSearch(formPayload) {
+    fetch('http://localhost:3000/api/v1/yelps', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       credentials: 'same-origin',
-      body: JSON.stringify(submission)
-    }).then( () => {
-      browserHistory.push('/')
+      body: JSON.stringify(formPayload)
     })
+    .then(response => response.json())
+    .then(body => {
+      let data = data
+      this.setState({
+        data: data
+      })
+    })
+    .catch(error=> console.error('error in fetch ${errorMessage}'))
   }
 
   handleClearForm(event) {
@@ -63,35 +71,49 @@ class YelpFormContainer extends Component {
   }
 
   render() {
-    return(
-      <div>
-        <h1 className = 'add-new' > Search Yelp </h1>
-      <div className="row">
-        <div className="columns medium-6">
-          <form className="callout" onSubmit={this.handleFormSubmit}>
-          <TextField
-            content={this.state.term}
-            label="Term"
-            name="term"
-            handlerFunction={this.handleTermChange}
-          />
-          <TextField
-            content={this.state.location}
-            label="Location"
-            name="location"
-            handlerFunction={this.handleLocationChange}
-          />
-          <div className="button-group">
-            <button className="button" onClick={this.handleClearForm}>Clear</button>
-            <input className="button" type="submit" value="Submit" />
-          </div>
-          </form>
+    //
+    // let data = this.state.data.map(data => {
+    //   return <YelpTile
+    //       key={data.id_str}
+    //       data={data}
+    //   />
+    // })
+    //   return (
+    //     {data}
+    //   )
+
+  return(
+    <div>
+      <h1 className = 'add-new' > Search Yelp </h1>
+    <div className="row">
+      <div className="columns medium-6">
+        <form className="callout" onSubmit={this.handleFormSubmit}>
+        <TextField
+          content={this.state.term}
+          label="Term"
+          name="term"
+          handlerFunction={this.handleTermChange}
+        />
+        <TextField
+          content={this.state.location}
+          label="Location"
+          name="location"
+          handlerFunction={this.handleLocationChange}
+        />
+        <div className="button-group">
+          <button className="button" onClick={this.handleClearForm}>Clear</button>
+          <input className="button" type="submit" value="Submit" />
         </div>
+        </form>
       </div>
     </div>
-    )
-  }
-
+      {/* <div className="row columns small-12 medium-9 large-6">
+        <div className="yelp-feed">
+          {data}
+        </div>
+      </div> */}
+  </div>
+  )}
 }
 
 export default YelpFormContainer

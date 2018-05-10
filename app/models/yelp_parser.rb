@@ -5,10 +5,13 @@ require 'pry'
 
  API_HOST = "https://api.yelp.com"
  SEARCH_PATH = "/v3/businesses/search"
- SEARCH_LIMIT = 5
+
 
 class YelpParser
-  attr_reader :data
+  include HTTParty
+  base_uri 'https://api.yelp.com/v3/'
+
+  attr_accessor :data
 
   def initialize
     @data = []
@@ -17,21 +20,26 @@ class YelpParser
   def search(term, location)
     # response = HTTParty.get("https://api.meetup.com/2/groups?key=#{ENV["MEETUP_KEY"]}&topic=#{query}")
     # response = HTTParty.get("https://api.meetup.com/2/groups?key=#{ENV["MEETUP_KEY"]}&topic=dogs")
-    response = HTTParty.get("https://api.yelp.com/v3/businesses/search?key=#{ENV["YELP_API_KEY"]}&term=#{term}&location=#{location}")
-    binding.pry
+    response = self.class.get("/businesses/search",
+      {
+        query: { term: term, location: location},
+        headers: {"Authorization" => "Bearer #{ENV["YELP_API_KEY"]}"}
+      }
+    )
 
     yelp_data = response["businesses"][0]
+
     new_hash = {
       name: yelp_data["name"],
       location: yelp_data["location"],
       phone: yelp_data["phone"],
-      location: yelp_data["location"],
       image: yelp_data["image_url"],
       description: yelp_data["description"],
-      id: yelp_data["id"],
-      reviews: yelp_data["id"]["reviews"]
+      categories: yelp_data["categories"],
+      attributes: yelp_data["gender_neutral_restrooms"]
     }
     @data << new_hash
+
   end
 
 

@@ -6,11 +6,9 @@ class Api::V1::YelpsController < ApplicationController
   end
 
   def search
-    params = params[:term, :location]
     yelp_parser = YelpParser.new
-    yelp_parser.search(params)
+    yelp_parser.search(params[:term], params[:location])
 
-     render json: { data: yelp_parser.data }
+    render json: { data: yelp_parser.data }
   end
-
 end

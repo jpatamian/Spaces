@@ -35,7 +35,7 @@ gem 'httparty'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-
+  gem 'dotenv-rails'
 end
 
 group :development do
