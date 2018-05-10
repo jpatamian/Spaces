@@ -43,9 +43,10 @@ class PlacesIndexContainer extends Component {
 
       <div>
           <div className = "row">
-            <h1 className = 'page-header' > Find Your Spaces </h1>
-          <YelpFormContainer />
-          <div className = 'place'>{places}</div>
+            <h1 className ='page-header'> Suggestions </h1>
+        <div className="columns">
+          {places}
+        </div>
 
         </div>
       </div>

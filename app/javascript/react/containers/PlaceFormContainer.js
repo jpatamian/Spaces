@@ -138,7 +138,7 @@ class PlaceFormContainer extends Component {
   render() {
     return(
       <div>
-        <h1 className = 'add-new' > Add A Place! </h1>
+        <h1 className = 'add-new' > Add A Suggestion </h1>
       <div className="row">
         <div className="columns medium-6">
           <form className="callout" onSubmit={this.handleFormSubmit}>

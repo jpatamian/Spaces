@@ -80,14 +80,14 @@ class YelpFormContainer extends Component {
     })
   return(
     <div>
-      <h1 className = 'add-new' > Search Yelp </h1>
+      <h1 className = 'add-new' > Find Your Space </h1>
     <div className="row">
       <div className="columns medium-6">
         <form className="callout" onSubmit={this.handleFormSubmit}>
         <TextField
           content={this.state.term}
-          label="Term"
-          name="term"
+          label="Category"
+          name="category"
           handlerFunction={this.handleTermChange}
         />
         <TextField
@@ -103,7 +103,7 @@ class YelpFormContainer extends Component {
         </form>
       </div>
     </div>
-      <div className="row columns small-12 medium-9 large-6">
+      <div className="columns">
         <div className="yelp-feed">
           {data}
         </div>

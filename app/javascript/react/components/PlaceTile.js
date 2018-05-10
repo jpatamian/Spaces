@@ -4,8 +4,8 @@ import { Link } from 'react-router';
 
 const PlaceTile = props => {
   return(
-    <div className = "row ">
-      <div className = 'column'>
+    <div className = 'grid-container'>
+      <div>
       <Link to={`/places/${props.id}`}>
         {props.name}
       </Link>

@@ -4,9 +4,9 @@ import { Link } from 'react-router';
 
 const YelpTile = props => {
   return(
-    <div className = "row ">
-      <div className = 'column'>
-        {props.name}
+    <div>
+      <div className = 'small-3  columns'>
+          {props.name}
     </div>
     </div>
   )

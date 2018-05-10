@@ -38,8 +38,6 @@ class PlacesShowContainer extends Component {
 
       <h2>{this.state.place.name}</h2>
       <div className="place-info">
-        <img className = 'place-photo' src= {this.state.place.place_photo} />
-
           <p className="address">Location: {this.state.place.address} {this.state.place.city}, {this.state.place.state} {this.state.place.zip}</p>
           <p className="description">Description: {this.state.place.description}</p>
       </div>

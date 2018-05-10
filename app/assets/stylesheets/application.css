@@ -17,33 +17,38 @@
  */
 
  body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
- .myLink {display: none}
 
 .place-photo {
   width: 30%;
 
 }
 
-.address {
+.grid-container {
+  display: flex;
+  justify-content: center;
+}
+.grid-container>div {
+  text-align: center;
+  font-size: 15px;
+}
 
+.map {
+  height: 100px;
+  width: 100px;
 
 }
 
-.description {
-
-
-}
-
-
-.header-img{
-  background-image: url("images/travel-protection-header.jpg");
-  height: 18em;
-  max-width: 67em;
+header {
+  background-image: url("images/mountain-air-balloon.jpg");
+  background-repeat: no-repeat;
+  height: 600px;
 }
 
 .page-header {
   text-align: center;
 }
+
+
 
 .sign {
   color: #f44336;

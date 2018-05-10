@@ -8,12 +8,12 @@ import YelpFormContainer from './containers/YelpFormContainer'
 const App = (props) => {
   return(
     <Router history={browserHistory}>
-
-      <Route path='/'>
-      <IndexRoute component={PlacesIndexContainer} />
-      <Route path='/places/new' component={PlaceFormContainer} />
-      <Route path="/places/:id" component={PlacesShowContainer}/>
-      <Route path="*" component={PlacesIndexContainer} />
+      <Route >
+        <Route path='/' component={YelpFormContainer}/>
+        <Route path='/places' component = {PlacesIndexContainer} />
+        <Route path='/places/new' component={PlaceFormContainer} />
+        <Route path="/places/:id" component={PlacesShowContainer}/>
+        <Route path="*" component={PlacesIndexContainer} />
       </Route>
     </Router>
   )
