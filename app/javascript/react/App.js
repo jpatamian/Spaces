@@ -3,6 +3,7 @@ import { browserHistory, Route, IndexRoute, Router, withRouter } from 'react-rou
 import PlacesIndexContainer from './containers/PlacesIndexContainer'
 import PlacesShowContainer from './containers/PlacesShowContainer'
 import PlaceFormContainer from './containers/PlaceFormContainer'
+import YelpFormContainer from './containers/YelpFormContainer'
 
 const App = (props) => {
   return(

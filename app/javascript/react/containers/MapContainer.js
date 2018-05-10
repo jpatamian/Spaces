@@ -37,7 +37,7 @@ class MapContainer extends Component {
           <Marker
             onClick={this.onMarkerClick}
             icon={{
-              url: "/img/icon.svg",
+              url: "https://www.google.com/imgres?imgurl=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fmap-marker-icon.png&imgrefurl=http%3A%2F%2Fwww.iconarchive.com%2Fshow%2Fsmall-n-flat-icons-by-paomedia%2Fmap-marker-icon.html&docid=UrA3DqlCg75OQM&tbnid=3DqWQ-7j1GBx-M%3A&vet=10ahUKEwiwur2Yn_naAhXEct8KHQnHAhkQMwjOASgAMAA..i&w=1024&h=1024&bih=880&biw=1077&q=marker%20image&ved=0ahUKEwiwur2Yn_naAhXEct8KHQnHAhkQMwjOASgAMAA&iact=mrc&uact=8",
               anchor: new google.maps.Point(32, 32),
               scaledSize: new google.maps.Size(64, 64)
             }}
