@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PlaceInfo = (props) => {
+const PlaceShow = (props) => {
 
 
 
@@ -19,4 +19,4 @@ const PlaceInfo = (props) => {
     </div>
   )
 }
-export default PlaceInfo
+export default PlaceShow

@@ -27,19 +27,17 @@ class YelpParser
       }
     )
 
-    yelp_data = response["businesses"][0]
-
-    new_hash = {
-      name: yelp_data["name"],
-      location: yelp_data["location"],
-      phone: yelp_data["phone"],
-      image: yelp_data["image_url"],
-      description: yelp_data["description"],
-      categories: yelp_data["categories"],
-      attributes: yelp_data["gender_neutral_restrooms"]
-    }
-    @data << new_hash
-
+  @data = response["businesses"].map do |business|
+      new_hash = {
+        name: business["name"],
+        location: business["location"],
+        phone: business["phone"],
+        image: business["image_url"],
+        description: business["description"],
+        categories: business["categories"],
+        attributes: business["gender_neutral_restrooms"]
+      }
+    end
   end
 
 

@@ -37,9 +37,8 @@ class YelpFormContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      let data = data
       this.setState({
-        data: data
+        data: body.data
       })
     })
     .catch(error=> console.error('error in fetch ${errorMessage}'))
@@ -50,6 +49,7 @@ class YelpFormContainer extends Component {
     this.setState({
     term: '',
     location: '',
+    data: [],
     errors: {}})
   }
 
@@ -71,17 +71,13 @@ class YelpFormContainer extends Component {
   }
 
   render() {
-    //
-    // let data = this.state.data.map(data => {
-    //   return <YelpTile
-    //       key={data.id_str}
-    //       data={data}
-    //   />
-    // })
-    //   return (
-    //     {data}
-    //   )
 
+    let data = this.state.data.map(data => {
+      return <YelpTile
+        key={data.id}
+        name={data.name}
+    />
+    })
   return(
     <div>
       <h1 className = 'add-new' > Search Yelp </h1>
@@ -107,11 +103,11 @@ class YelpFormContainer extends Component {
         </form>
       </div>
     </div>
-      {/* <div className="row columns small-12 medium-9 large-6">
+      <div className="row columns small-12 medium-9 large-6">
         <div className="yelp-feed">
           {data}
         </div>
-      </div> */}
+      </div>
   </div>
   )}
 }
