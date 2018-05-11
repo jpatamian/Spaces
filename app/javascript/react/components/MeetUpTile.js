@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const MeetupTile = props => {
   debugger
   return(
-    <div>
+    <div className = 'grid-container'>
       <div className = 'small-3  columns'>
       <ul>
         {props.event}

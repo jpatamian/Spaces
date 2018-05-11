@@ -42,7 +42,6 @@ class PlacesShowContainer extends Component {
           <p className="description">Description: {this.state.place.description}</p>
       </div>
 
-      <MapContainer />
     </div>
     )
   }

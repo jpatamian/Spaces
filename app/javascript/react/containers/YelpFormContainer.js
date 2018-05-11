@@ -41,7 +41,7 @@ class YelpFormContainer extends Component {
         data: body.data
       })
     })
-    .catch(error=> console.error('error in fetch ${errorMessage}'))
+    .catch(error=> console.error(`error in fetch ${errorMessage}`))
   }
 
   handleClearForm(event) {
@@ -76,6 +76,8 @@ class YelpFormContainer extends Component {
       return <YelpTile
         key={data.id}
         name={data.name}
+        image={data.image}
+        location={data.location}
     />
     })
   return(
@@ -86,8 +88,8 @@ class YelpFormContainer extends Component {
         <form className="callout" onSubmit={this.handleFormSubmit}>
         <TextField
           content={this.state.term}
-          label="Category"
-          name="category"
+          label="Accommodation"
+          name="accommodation"
           handlerFunction={this.handleTermChange}
         />
         <TextField

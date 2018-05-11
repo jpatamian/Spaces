@@ -4,9 +4,10 @@ import { Link } from 'react-router';
 
 const YelpTile = props => {
   return(
-    <div>
-      <div className = 'small-3  columns'>
+    <div className = 'grid-container'>
+      <div className = 'row'>
           {props.name}
+          <img src= {props.image} />
     </div>
     </div>
   )
