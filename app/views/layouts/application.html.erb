@@ -9,6 +9,8 @@
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_link_tag "https://use.fontawesome.com/releases/v5.0.13/css/all.css" %>
     <%= stylesheet_link_tag "https://www.w3schools.com/w3css/4/w3.css" %>
+    <%=stylesheet_link_tag"http://fonts.googleapis.com/css?family=Tangerine" %>
+
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
 
@@ -23,7 +25,7 @@
     <a href="/" class="w3-bar-item w3-button w3-right w3-text-red "><i class="fa fa-search"></i></a>
     <a href='/places/new' class="w3-bar-item w3-button w3-right w3-text-red">Add A Place</a>
     <a href='/places' class="w3-bar-item w3-button w3-right w3-text-red">Suggestions</a>
-    <a href='/meetups' class="w3-bar-item w3-button w3-right w3-text-red">MeetUps</a>
+    <a href='/meetups' class="w3-bar-item w3-button w3-right w3-text-red"><img id='meetupicon' src= "https://secure.meetup.com/s/img/0/logo/svg/logo--mSwarm.svg"> MeetUps</a></img>
     <%- if current_user -%>
       <a class="w3-bar-item w3-button w3-text-red w3-hover-red" <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </a>
     <%- else -%>
@@ -50,10 +52,7 @@
       Gay Friendly Travel </h1>
   <div class=" w3-content" style="max-width:1100px;">
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
+
 
 
   <%= yield %>
@@ -64,7 +63,9 @@
 
 </body>
 
-
+<br>
+<br>
+<br>
 <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
   <h5>Find Us On</h5>
   <div class="w3-xlarge w3-padding-16">

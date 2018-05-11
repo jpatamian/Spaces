@@ -11,16 +11,16 @@ class MeetupParser
   def search(zip, text)
     response = HTTParty.get("https://api.meetup.com/find/upcoming_events?key=2f1d6b66828f78466182e7157491e&zip=#{zip}&text=#{text}")
 
-    meetup_data = response["events"][0]
-    new_hash = {
-      id: meetup_data["id"],
-      event: meetup_data["name"],
-      city: meetup_data["city"],
-      date: meetup_data["local_date"],
-      description: meetup_data["description"]
-    }
-    @data << new_hash
+    @data = response["events"].map do |event|
 
+      new_hash = {
+        id: event["id"],
+        event: event["name"],
+        city: event["city"],
+        date: event["local_date"],
+        description: event["description"]
+      }
+    end
   end
 
   # What happens when no topics are found?

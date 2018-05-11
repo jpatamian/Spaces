@@ -78,7 +78,8 @@ class MeetUpFormContainer extends Component {
     })
   return(
     <div>
-      <h1 className = 'add-new' > Search MeetUps </h1>
+      <img id= 'meetup-logo' src="https://secure.meetup.com/s/img/0/logo/svg/logo--script.svg" />
+      <h1 className = 'add-new' > </h1>
     <div className="row">
       <div className="columns medium-6">
         <form className="callout" onSubmit={this.handleFormSubmit}>

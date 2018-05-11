@@ -30,7 +30,7 @@ class YelpParser
   @data = response["businesses"].map do |business|
       new_hash = {
         name: business["name"],
-        location: business["location"],
+        business_location: business["location"],
         phone: business["phone"],
         image: business["image_url"],
         description: business["description"],
