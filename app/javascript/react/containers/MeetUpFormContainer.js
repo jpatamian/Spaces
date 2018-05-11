@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
 import { browserHistory, withRouter } from 'react-router'
 import TextField from '../components/TextField'
-import YelpTile from '../components/YelpTile'
+import MeetupTile from '../components/MeetUpTile'
 
-class YelpFormContainer extends Component {
+class MeetUpFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      term: '',
-      location: '',
+      text: '',
+      zip: '',
       data: []
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.handleTermChange = this.handleTermChange.bind(this)
-    this.handleLocationChange = this.handleLocationChange.bind(this)
+    this.handleZipChange = this.handleZipChange.bind(this)
+    this.handleTextChange = this.handleTextChange.bind(this)
     this.addSearch = this.addSearch.bind(this)
   }
 
-  handleTermChange(event) {
-    this.setState({ term: event.target.value })
+  handleTextChange(event) {
+    this.setState({ text: event.target.value })
   }
 
-  handleLocationChange(event) {
-    this.setState({ location: event.target.value })
+  handleZipChange(event) {
+    this.setState({ zip: event.target.value })
   }
 
   addSearch(formPayload) {
-    fetch('http://localhost:3000/api/v1/yelps', {
+    fetch('http://localhost:3000/api/v1/meetups', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -47,8 +47,8 @@ class YelpFormContainer extends Component {
   handleClearForm(event) {
     event.preventDefault()
     this.setState({
-    term: '',
-    location: '',
+    text: '',
+    zip: '',
     data: [],
     errors: {}})
   }
@@ -56,45 +56,43 @@ class YelpFormContainer extends Component {
   handleFormSubmit(event) {
     event.preventDefault();
 
-    if (this.state.term.trim() != '' &&
-       this.state.location.trim() != '') {
-
       let formPayload = {
-        term: this.state.term,
-        location: this.state.location
-
+        text: this.state.text,
+        zip: this.state.zip
       }
       this.addSearch(formPayload)
-    }else{
-      alert("Please Fill Out All Fields")
-    }
   }
 
   render() {
 
     let data = this.state.data.map(data => {
-      return <YelpTile
+      debugger
+
+      return <MeetupTile
         key={data.id}
-        name={data.name}
+        name={data.event}
+        city = {data.city}
+        date = {data.date}
+        description = {data.description}
     />
     })
   return(
     <div>
-      <p className = 'find'> Find Your Space </p>
+      <h1 className = 'add-new' > Search MeetUps </h1>
     <div className="row">
       <div className="columns medium-6">
         <form className="callout" onSubmit={this.handleFormSubmit}>
         <TextField
-          content={this.state.term}
+          content={this.state.text}
           label="Category"
           name="category"
-          handlerFunction={this.handleTermChange}
+          handlerFunction={this.handleTextChange}
         />
         <TextField
-          content={this.state.location}
-          label="Location"
-          name="location"
-          handlerFunction={this.handleLocationChange}
+          content={this.state.zip}
+          label="Zip"
+          name="zip"
+          handlerFunction={this.handleZipChange}
         />
         <div className="button-group">
           <button className="button" onClick={this.handleClearForm}>Clear</button>
@@ -104,7 +102,7 @@ class YelpFormContainer extends Component {
       </div>
     </div>
       <div className="columns">
-        <div className="yelp-feed">
+        <div className="meetup-feed">
           <ul> {data} </ul>
         </div>
       </div>
@@ -112,4 +110,4 @@ class YelpFormContainer extends Component {
   )}
 }
 
-export default YelpFormContainer
+export default MeetUpFormContainer

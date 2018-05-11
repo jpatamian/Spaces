@@ -7,6 +7,7 @@
 
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_link_tag "https://use.fontawesome.com/releases/v5.0.13/css/all.css" %>
     <%= stylesheet_link_tag "https://www.w3schools.com/w3css/4/w3.css" %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
@@ -17,11 +18,12 @@
 <header class="header-img w3-display-container w3-content w3-hide-small" style="max-width:1500px">
 
   <nav>
-    <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+    <div class="w3-bar w3-white w3-border-bottom">
     <a href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-map-marker w3-margin-right"></i>Spaces</b></a>
-    <a href="/" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
-    <a href='/places/new' class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Add A Place</a>
-    <a href='/places' class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Suggestions</a>
+    <a href="/" class="w3-bar-item w3-button w3-right w3-text-red "><i class="fa fa-search"></i></a>
+    <a href='/places/new' class="w3-bar-item w3-button w3-right w3-text-red">Add A Place</a>
+    <a href='/places' class="w3-bar-item w3-button w3-right w3-text-red">Suggestions</a>
+    <a href='/meetups' class="w3-bar-item w3-button w3-right w3-text-red">MeetUps</a>
     <%- if current_user -%>
       <a class="w3-bar-item w3-button w3-text-red w3-hover-red" <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </a>
     <%- else -%>
@@ -44,6 +46,8 @@
 
   <body>
 
+    <h1 class = 'home-header'> <i class="fas fa-plane"></i> </li>
+      Gay Friendly Travel </h1>
   <div class=" w3-content" style="max-width:1100px;">
 <br/>
 <br/>
