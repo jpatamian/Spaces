@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
-  resources :places, only: [:index, :show]
+  resources :places, only: [:index]
 
   devise_for :users
 

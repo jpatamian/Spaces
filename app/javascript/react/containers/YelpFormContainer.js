@@ -105,7 +105,7 @@ class YelpFormContainer extends Component {
     </div>
       <div className="columns">
         <div className="yelp-feed">
-          {data}
+          <ul> {data} </ul>
         </div>
       </div>
   </div>
