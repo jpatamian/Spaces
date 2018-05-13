@@ -6,7 +6,8 @@ class PlacesIndexContainer extends Component {
   constructor(props) {
       super(props)
       this.state = {
-        places: []
+        places: [],
+        selectedState: []
       }
     }
 
@@ -23,11 +24,11 @@ class PlacesIndexContainer extends Component {
       .then(body => {
         this.setState( { places: body } )
       })
-      .catch(error => console.error(`fetch failed because ${error.message}`))
+    .catch(error => console.error(`fetch failed because ${error.message}`))
   }
 
   render() {
-
+    
     let places = this.state.places.map(place => {
 
       return(
