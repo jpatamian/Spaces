@@ -8,12 +8,12 @@ class MeetUpFormContainer extends Component {
     super(props)
     this.state = {
       text: '',
-      zip: '',
+      city: '',
       data: []
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.handleZipChange = this.handleZipChange.bind(this)
+    this.handleCityChange = this.handleCityChange.bind(this)
     this.handleTextChange = this.handleTextChange.bind(this)
     this.addSearch = this.addSearch.bind(this)
   }
@@ -22,8 +22,8 @@ class MeetUpFormContainer extends Component {
     this.setState({ text: event.target.value })
   }
 
-  handleZipChange(event) {
-    this.setState({ zip: event.target.value })
+  handleCityChange(event) {
+    this.setState({ city: event.target.value })
   }
 
   addSearch(formPayload) {
@@ -48,7 +48,7 @@ class MeetUpFormContainer extends Component {
     event.preventDefault()
     this.setState({
     text: '',
-    zip: '',
+    city: '',
     data: [],
     errors: {}})
   }
@@ -58,7 +58,7 @@ class MeetUpFormContainer extends Component {
 
       let formPayload = {
         text: this.state.text,
-        zip: this.state.zip
+        city: this.state.city
       }
       this.addSearch(formPayload)
   }
@@ -66,7 +66,6 @@ class MeetUpFormContainer extends Component {
   render() {
 
     let data = this.state.data.map(data => {
-      debugger
 
       return <MeetupTile
         key={data.id}
@@ -90,10 +89,10 @@ class MeetUpFormContainer extends Component {
           handlerFunction={this.handleTextChange}
         />
         <TextField
-          content={this.state.zip}
-          label="Zip"
-          name="zip"
-          handlerFunction={this.handleZipChange}
+          content={this.state.city}
+          label="City"
+          name="city"
+          handlerFunction={this.handleCityChange}
         />
         <div className="button-group">
           <button className="button" onClick={this.handleClearForm}>Clear</button>

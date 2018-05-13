@@ -7,7 +7,7 @@ class Api::V1::MeetupsController < ApplicationController
 
   def search
     meetup_parser = MeetupParser.new
-    meetup_parser.search(params[:text], params[:zip])
+    meetup_parser.search(params[:text], params[:city])
 
     render json: { data: meetup_parser.data }
   end
