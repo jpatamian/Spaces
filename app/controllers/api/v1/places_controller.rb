@@ -1,12 +1,13 @@
 class Api::V1::PlacesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  serialization_scope :current_user
 
   def index
     render json: Place.all
   end
 
   def show
-    render json: Place.find(params[:id])
+    render json: Place.find(params[:id]), serializer: PlaceShowSerializer
   end
 
   def create

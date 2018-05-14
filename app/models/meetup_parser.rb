@@ -13,8 +13,8 @@ class MeetupParser
   end
 
   def search(text, city)
+    
     response = HTTParty.get("https://api.meetup.com/find/upcoming_events?key=2f1d6b66828f78466182e7157491e&city=#{city}&text=#{text}")
-binding.pry
     @data = response["events"].map do |event|
       new_hash = {
         id: event["id"],

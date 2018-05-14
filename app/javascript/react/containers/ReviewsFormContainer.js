@@ -1,47 +1,19 @@
 import React, { Component } from 'react'
-import PlaceShow from '../components/PlaceShow'
-import MapContainer from "./MapContainer";
-import ReviewsIndexContainer from './ReviewsIndexContainer'
 import TextField from '../components/TextField'
+import { browserHistory } from 'react-router'
 
-
-class PlacesShowContainer extends Component {
+class ReviewsFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      place: {},
-      placeId: this.props.params.id,
-      reviews: [],
       body: ''
     }
+
     this.handleBodyChange = this.handleBodyChange.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.addReview = this.addReview.bind(this)
   }
-
-  componentDidMount() {
-    let placeId = this.props.params.id
-    let place = {}
-
-    fetch(`/api/v1/places/${placeId}`)
-    .then(response => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      this.setState({
-        place: body,
-        reviews: body.reviews
-        })
-      })
-
-      .catch(error => console.error(`${error.message}`))
-    }
 
   handleBodyChange(event) {
     this.setState({ body: event.target.value })
@@ -53,7 +25,8 @@ class PlacesShowContainer extends Component {
   }
 
   addReview(submission) {
-    let placeId = this.state.place.id
+    debugger
+    let placeId = this.props.id
     fetch(`/api/v1/places/${placeId}/reviews`, {
       method: 'POST',
       headers: {
@@ -61,12 +34,8 @@ class PlacesShowContainer extends Component {
       },
       credentials: 'same-origin',
       body: JSON.stringify(submission)
-    }).then(response => response.json())
-    .then(reviews => {
-      this.setState( {
-        reviews: reviews,
-        body: ''
-      })
+    }).then( () => {
+      browserHistory.push(`/places/${placeId}`)
     })
   }
 
@@ -76,24 +45,16 @@ class PlacesShowContainer extends Component {
     let formPayload = {
       review: {
         review: this.state.body,
-        place_id: this.state.place.id
+        place_id: this.props.id
       }
     }
+    debugger 
     this.addReview(formPayload)
   }
-
 
   render() {
 
     return(
-      <div>
-
-      <h2>{this.state.place.name}</h2>
-      <div className="place-info">
-        <p className="address">Location: {this.state.place.address} {this.state.place.city}, {this.state.place.state} {this.state.place.zip}</p>
-        <p className="description">Description: {this.state.place.description}</p>
-      </div>
-
       <div className = "review-form">
         <TextField
           content={this.state.body}
@@ -107,13 +68,8 @@ class PlacesShowContainer extends Component {
           <button className="button" onClick={this.handleSubmit}>Submit</button>
         </div>
       </div>
-
-      <ReviewsIndexContainer
-        reviews={this.state.reviews}
-      />
-    </div>
     )
   }
 }
 
-  export default PlacesShowContainer
+export default ReviewsFormContainer
