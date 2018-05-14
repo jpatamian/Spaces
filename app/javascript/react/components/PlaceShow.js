@@ -1,14 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PlaceInfo = (props) => {
+const PlaceShow = (props) => {
+
+
+
   return(
-    <div>
+    <div className="row collapse">
+      <div className="columns small-12">
+          <h2 className="page-header text-center">
+            {props.name}
+          </h2>
+          <img src = {props.place_photo.url} className = 'photos'/>
+      </div>
       <div>
         {props.description}
       </div>
-      <img src = {props.photo} class = 'place-photo'/>
     </div>
   )
 }
-export default PlaceInfo
+export default PlaceShow

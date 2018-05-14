@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_07_181205) do
+ActiveRecord::Schema.define(version: 2018_05_14_174135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,14 +18,24 @@ ActiveRecord::Schema.define(version: 2018_05_07_181205) do
   create_table "places", force: :cascade do |t|
     t.string "name", null: false
     t.string "address", null: false
-    t.string "city", null: false
+    t.string "city"
     t.string "state", null: false
     t.string "country", null: false
-    t.string "zipcode", null: false
+    t.string "zipcode"
     t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "place_photo"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "review", null: false
+    t.bigint "user_id"
+    t.bigint "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_reviews_on_place_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +53,16 @@ ActiveRecord::Schema.define(version: 2018_05_07_181205) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "yelps", force: :cascade do |t|
+    t.string "name"
+    t.string "term"
+    t.string "location", null: false
+    t.string "radius"
+    t.string "categories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

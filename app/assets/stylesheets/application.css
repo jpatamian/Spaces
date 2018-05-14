@@ -15,6 +15,49 @@
  *= require foundation_and_overrides
 
  */
-.top-bar.a {
-  color: black;
+body, h1, .grid-container{
+  font-family: Century Gothic;
+}
+
+.home-header {
+  margin-top: 2em;
+  margin-left: 4em;
+  font-family: Century Gothic;
+}
+
+.place-photo {
+  width: 30%;
+
+}
+
+.find {
+  margin-left: 2em;
+}
+
+.grid-container {
+  display: grid;
+  text-align: center;
+  border: 1px solid;
+  padding: 1em;
+}
+
+#meetup-logo {
+  width: 12em;
+  margin-left: 18em;
+  margin-top: 0em;
+}
+
+#meetupicon {
+  width: 2em;
+  height: 2em;
+}
+
+header {
+  background-image: url("images/mountain-air-balloon.jpg");
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.page-header {
+  text-align: center;
 }

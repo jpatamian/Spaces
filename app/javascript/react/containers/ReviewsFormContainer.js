@@ -48,7 +48,6 @@ class ReviewsFormContainer extends Component {
         place_id: this.props.id
       }
     }
-    debugger
     this.addReview(formPayload)
   }
 

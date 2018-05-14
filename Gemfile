@@ -18,6 +18,10 @@ gem 'uglifier', '>= 1.3.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'httparty'
+gem 'active_model_serializers'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -33,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -59,3 +63,4 @@ gem 'foundation-rails', '~> 5.0'
 gem 'webpacker', '~> 3.3'
 gem 'react-rails'
 gem 'react-router-rails', '~> 0.11.6.1'
+gem 'sanitize'
