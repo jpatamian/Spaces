@@ -8,7 +8,8 @@ const PlaceTile = props => {
       <div>
       <Link to={`/places/${props.id}`}>
         {props.name}
-      </Link>
+      </Link><br/>
+      {props.state}
     </div>
     </div>
   )
