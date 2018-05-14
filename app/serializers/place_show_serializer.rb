@@ -1,6 +1,6 @@
 
 class PlaceShowSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :city, :state, :user_reviews
+  attributes :id, :name, :description, :address, :city, :state, :country, :zipcode, :user_reviews
   has_many :reviews
 
 

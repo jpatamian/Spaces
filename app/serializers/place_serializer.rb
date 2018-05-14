@@ -1,5 +1,5 @@
 class PlaceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :reviews
+  attributes :id, :name, :description, :address, :city, :state, :country, :zipcode
 
   def reviews
     output = []
