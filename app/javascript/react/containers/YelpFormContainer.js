@@ -9,6 +9,8 @@ class YelpFormContainer extends Component {
     this.state = {
       term: '',
       location: '',
+      attributes: null,
+      isChecked: null,
       data: []
     }
 
@@ -16,6 +18,7 @@ class YelpFormContainer extends Component {
     this.handleTermChange = this.handleTermChange.bind(this)
     this.handleLocationChange = this.handleLocationChange.bind(this)
     this.addSearch = this.addSearch.bind(this)
+    this.toggleChange = this.toggleChange.bind(this)
   }
 
   handleTermChange(event) {
@@ -26,7 +29,14 @@ class YelpFormContainer extends Component {
     this.setState({ location: event.target.value })
   }
 
+  toggleChange () {
+    this.setState({
+    isChecked: !this.state.isChecked,
+    attributes: "gender_neutral_restrooms"})
+  }
+
   addSearch(formPayload) {
+  debugger
     fetch('http://localhost:3000/api/v1/yelps', {
       method: 'POST',
       headers: {
@@ -54,6 +64,7 @@ class YelpFormContainer extends Component {
   }
 
   handleFormSubmit(event) {
+
     event.preventDefault();
 
     if (this.state.term.trim() != '' &&
@@ -61,7 +72,8 @@ class YelpFormContainer extends Component {
 
       let formPayload = {
         term: this.state.term,
-        location: this.state.location
+        location: this.state.location,
+        attributes: this.state.attributes
 
       }
       this.addSearch(formPayload)
@@ -98,9 +110,20 @@ class YelpFormContainer extends Component {
           name="location"
           handlerFunction={this.handleLocationChange}
         />
-        <div className="button-group">
-          <button className="button" onClick={this.handleClearForm}>Clear</button>
-          <input className="button" type="submit" value="Submit" />
+        <div className="switch-container">
+            <label>
+                <input ref="switch" checked={ this.state.isChecked } onClick={ this.toggleChange } className="switch" type="checkbox" />
+                <div>
+                    <span><g className="icon icon-toolbar grid-view"></g></span>
+                    <span><g className="icon icon-toolbar ticket-view"></g></span>
+                    <div></div>
+                </div>
+            </label>
+          </div>
+        <div className="yelp-button">
+          <p id='clickgn'> Gender Neutral Restrooms </p>
+          <button className="button small" onClick={this.handleClearForm}>Clear</button>
+          <input className="button small" type="submit" value="Submit" />
         </div>
         </form>
       </div>

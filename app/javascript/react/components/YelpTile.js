@@ -5,9 +5,11 @@ import { Link } from 'react-router';
 const YelpTile = props => {
   return(
     <div className = 'grid-container'>
-      <div className = 'row'>
-          {props.name}
-          <img src= {props.image} />
+      <div className = 'row yelp-data'>
+          <h1>{props.name}</h1>
+          <br/>
+          <p>{props.location.display_address}</p>
+          <img id="yelp-image" src= {props.image} />
     </div>
     </div>
   )

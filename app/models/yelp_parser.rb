@@ -17,12 +17,12 @@ class YelpParser
     @data = []
   end
 
-  def search(term, location)
-    # response = HTTParty.get("https://api.meetup.com/2/groups?key=#{ENV["MEETUP_KEY"]}&topic=#{query}")
-    # response = HTTParty.get("https://api.meetup.com/2/groups?key=#{ENV["MEETUP_KEY"]}&topic=dogs")
+  def search(term, location, attributes)
+    binding.pry
+
     response = self.class.get("/businesses/search",
       {
-        query: { term: term, location: location},
+        query: { term: term, location: location, attributes: attributes},
         headers: {"Authorization" => "Bearer #{ENV["YELP_API_KEY"]}"}
       }
     )
@@ -30,7 +30,7 @@ class YelpParser
   @data = response["businesses"].map do |business|
       new_hash = {
         name: business["name"],
-        business_location: business["location"],
+        location: business["location"],
         phone: business["phone"],
         image: business["image_url"],
         description: business["description"],
@@ -39,6 +39,5 @@ class YelpParser
       }
     end
   end
-
 
 end
