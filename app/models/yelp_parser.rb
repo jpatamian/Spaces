@@ -1,5 +1,4 @@
 require 'httparty'
-require 'pry'
 
  API_KEY = "#{ENV["YELP_API_KEY"]}"
 
@@ -18,7 +17,6 @@ class YelpParser
   end
 
   def search(term, location, attributes)
-    binding.pry
 
     response = self.class.get("/businesses/search",
       {
