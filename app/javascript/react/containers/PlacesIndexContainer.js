@@ -15,7 +15,7 @@ class PlacesIndexContainer extends Component {
     }
 
   componentDidMount() {
-    fetch('api/v1/places')
+    fetch('/api/v1/places')
       .then(response => {
         if (response.ok) {
           return response

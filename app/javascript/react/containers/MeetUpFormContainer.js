@@ -27,7 +27,7 @@ class MeetUpFormContainer extends Component {
   }
 
   addSearch(formPayload) {
-    fetch('http://localhost:3000/api/v1/meetups', {
+    fetch('/api/v1/meetups', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
