@@ -1,6 +1,6 @@
 require 'httparty'
 
- API_KEY = "#{ENV["YELP_API_KEY"]}"
+ API_KEY = "#{ENV["YELP_KEY"]}"
 
  API_HOST = "https://api.yelp.com"
  SEARCH_PATH = "/v3/businesses/search"
@@ -21,7 +21,7 @@ class YelpParser
     response = self.class.get("/businesses/search",
       {
         query: { term: term, location: location, attributes: attributes},
-        headers: {"Authorization" => "Bearer #{ENV["YELP_API_KEY"]}"}
+        headers: {"Authorization" => "Bearer #{ENV["YELP_KEY"]}"}
       }
     )
 
