@@ -15,6 +15,7 @@ class YelpFormContainer extends Component {
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.handleClearForm = this.handleClearForm.bind(this)
     this.handleTermChange = this.handleTermChange.bind(this)
     this.handleLocationChange = this.handleLocationChange.bind(this)
     this.addSearch = this.addSearch.bind(this)
@@ -36,7 +37,11 @@ class YelpFormContainer extends Component {
   }
 
   addSearch(formPayload) {
+<<<<<<< HEAD
     fetch('http://localhost:3000/api/v1/yelps', {
+=======
+    fetch('/api/v1/yelps', {
+>>>>>>> master
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
