@@ -18,7 +18,6 @@ class YelpParser
   end
 
   def search(term, location, attributes)
-    binding.pry
 
     response = self.class.get("/businesses/search",
       {
@@ -35,6 +34,7 @@ class YelpParser
         image: business["image_url"],
         description: business["description"],
         categories: business["categories"],
+        url: business["url"],
         attributes: business["gender_neutral_restrooms"]
       }
     end

@@ -25,39 +25,10 @@ class PlaceFormContainer extends Component {
     this.handleZipcodeChange = this.handleZipcodeChange.bind(this)
 
     this.handleClearForm = this.handleClearForm.bind(this)
-    this.validateName = this.validateName.bind(this)
-    this.validateAddress = this.validateAddress.bind(this)
 
     this.addPlace = this.addPlace.bind(this)
   }
 
-  validateName(name) {
-    // This is not good enough validation but we'll come back to it
-    if(name.trim() === '') {
-      let newError = { body: 'You must enter a name.' }
-      this.setState({ errors: Object.assign(this.state.errors, newError) })
-      return false
-    } else {
-      let errorState = this.state.errors
-      delete errorState.body
-      this.setState({ errors: errorState })
-      return true
-    }
-  }
-
-
-  validateAddress(address) {
-    if(address.trim() === '') {
-      let newError = { title: 'You must enter an address.' }
-      this.setState({ errors: Object.assign(this.state.errors, newError) })
-      return false
-    } else {
-      let errorState = this.state.errors
-      delete errorState.title
-      this.setState({ errors: errorState })
-      return true
-    }
-  }
 
   handleClearForm(event) {
     event.preventDefault()
@@ -67,12 +38,12 @@ class PlaceFormContainer extends Component {
     city: '',
     state: '',
     country: '',
+    zipcode:'',
     description: '',
     errors: {}})
   }
 
   handleNameChange(event) {
-    this.validateName(event.target.value)
     this.setState({ name: event.target.value })
   }
   handleZipcodeChange(event) {
@@ -80,7 +51,6 @@ class PlaceFormContainer extends Component {
   }
 
   handleAddressChange(event) {
-    this.validateAddress(event.target.value)
     this.setState({ address: event.target.value })
   }
 
@@ -187,7 +157,7 @@ class PlaceFormContainer extends Component {
 
           <div className="button-group">
             <button className="button" onClick={this.handleClearForm}>Clear</button>
-            <input className="button" type="submit" value="Submit" />
+            <input className="button" type="submit" value="Submit" onClick = {this.handleFormSubmit} />
           </div>
           </form>
         </div>

@@ -19,6 +19,9 @@ body, h1, .grid-container{
   font-family: Century Gothic;
 }
 
+body {
+}
+
 #yelp-image {
   width: 18em;
   height: 13em;
@@ -72,7 +75,7 @@ body, h1, .grid-container{
 header {
   background-image: url("images/mountain-air-balloon.jpg");
   background-repeat: no-repeat;
-  height: 500px;
+  height: 40em;
 }
 
 .page-header {

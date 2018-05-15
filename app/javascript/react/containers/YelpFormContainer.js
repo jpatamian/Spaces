@@ -36,7 +36,7 @@ class YelpFormContainer extends Component {
   }
 
   addSearch(formPayload) {
-  debugger
+
     fetch('http://localhost:3000/api/v1/yelps', {
       method: 'POST',
       headers: {
@@ -90,6 +90,7 @@ class YelpFormContainer extends Component {
         name={data.name}
         image={data.image}
         location={data.location}
+        url = {data.url}
     />
     })
   return(
