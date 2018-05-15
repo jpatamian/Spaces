@@ -37,7 +37,7 @@ class YelpFormContainer extends Component {
   }
 
   addSearch(formPayload) {
-    fetch('http://localhost:3000/api/v1/yelps', {
+    fetch('/api/v1/yelps', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
