@@ -27,7 +27,8 @@ class PlacesIndexContainer extends Component {
       .then(body => {
         this.setState( {
           allPlaces: body,
-          places: body } )
+          places: body
+        } )
       })
     .catch(error => console.error(`fetch failed  ${error.message}`))
   }

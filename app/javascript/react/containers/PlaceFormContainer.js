@@ -102,7 +102,7 @@ class PlaceFormContainer extends Component {
 
   addPlace(submission) {
 
-    fetch(`http://localhost:3000/api/v1/places`, {
+    fetch(`/api/v1/places`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
