@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { browserHistory, withRouter } from 'react-router'
 import TextField from '../components/TextField'
 import YelpTile from '../components/YelpTile'
+import PlaceTile from '../components/PlaceTile'
 
 class YelpFormContainer extends Component {
   constructor(props) {
@@ -11,9 +12,14 @@ class YelpFormContainer extends Component {
       location: '',
       attributes: null,
       isChecked: null,
-      data: []
+      data: [],
+      search: '',
+      finalResults: [],
+      places: {}
     }
 
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
+    this.handleSearchChange = this.handleSearchChange.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.handleTermChange = this.handleTermChange.bind(this)
@@ -82,7 +88,64 @@ class YelpFormContainer extends Component {
     }
   }
 
+  componentDidMount() {
+   fetch('api/v1/places')
+     .then(response => {
+       if (response.ok) {
+         return response
+       } else {
+         let errorMessage = `${response.status} (${response.statusText})`
+       }
+     })
+     .then(response => response.json())
+     .then(body =>{
+       this.setState( { places: body } )
+     })
+     .catch(error => console.error(`${error.message}`))
+  }
+
+
+  handleSubmit(event) {
+    event.preventDefault()
+    let formPayload = {
+      search: this.state.search
+    }
+    this.filteredPlaces(formPayload)
+  }
+
+  handleSearchChange(event) {
+    debugger
+
+    this.setState({ search: event.target.value })
+  }
+
+  handleSearchSubmit(event) {
+    let formPayload = {search: event.target.value}
+    let searchResults = []
+    let search = formPayload.search.toString().toLowerCase();
+
+    this.state.places.forEach((place) => {
+      if (place["state"].toLowerCase().includes(search)){
+       searchResults.push(place)
+     }
+      this.setState({
+        finalResults: searchResults,
+        search: event.target.value })
+    })
+  }
+
   render() {
+    <header className = "header-img"/>
+    let finalResults = this.state.finalResults.map(place => {
+      return(
+        <PlaceTile
+          key = {place.id}
+          id = {place.id}
+          name = {place.name}
+          state = {place.state}
+        />
+      )
+    })
 
     let data = this.state.data.map(data => {
       return <YelpTile
@@ -94,46 +157,42 @@ class YelpFormContainer extends Component {
     })
   return(
     <div>
-      <p className = 'find'> Find Your Space </p>
-    <div className="row">
-      <div className="columns medium-6">
-        <form className="callout" onSubmit={this.handleFormSubmit}>
-        <TextField
-          content={this.state.term}
-          label="Accommodation"
-          name="accommodation"
-          handlerFunction={this.handleTermChange}
-        />
-        <TextField
-          content={this.state.location}
-          label="Location"
-          name="location"
-          handlerFunction={this.handleLocationChange}
-        />
-        <div className="switch-container">
-            <label>
-                <input ref="switch" checked={ this.state.isChecked } onClick={ this.toggleChange } className="switch" type="checkbox" />
-                <div>
-                    <span><g className="icon icon-toolbar grid-view"></g></span>
-                    <span><g className="icon icon-toolbar ticket-view"></g></span>
-                    <div></div>
-                </div>
-            </label>
+      <div className = 'header-img'>
+        <form className = " yelp-form row" onSubmit={this.handleFormSubmit}>
+          <div className="large-6 columns text">
+            <TextField
+              content={this.state.term}
+              label="Accommodation"
+              name="accommodation"
+              handlerFunction={this.handleTermChange}
+            />
           </div>
-        <div className="yelp-button">
-          <p id='clickgn'> Gender Neutral Restrooms </p>
-          <button className="button small" onClick={this.handleClearForm}>Clear</button>
-          <input className="button small" type="submit" value="Submit" />
-        </div>
+          <div className="large-6 columns text">
+
+            <TextField
+              content={this.state.location}
+              label="Location"
+              name="location"
+              handlerFunction={this.handleLocationChange}
+            />
+          </div>
+            <div className="column">
+              <div className = "large 4-columns text">
+                <input type="radio" onClick={ this.toggleChange } name="yes" value="yes"/><label>Gender Neutral Restrooms</label>
+              </div>
+              <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
+              <input className="small button secondary" type="submit" value="Submit" />
+            </div>
         </form>
+
       </div>
-    </div>
       <div className="columns">
         <div className="yelp-feed">
           <ul> {data} </ul>
         </div>
+        <ul> {finalResults} </ul>
       </div>
-  </div>
+    </div>
   )}
 }
 

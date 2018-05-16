@@ -14,45 +14,32 @@
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
 
-
   <%= csrf_meta_tags %>
 </head>
-<header class="header-img w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+<body class="w3-light-grey">
 
-  <nav>
-    <div class="w3-bar w3-white w3-border-bottom">
-    <a href="/" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-map-marker w3-margin-right"></i>Spaces</b></a>
-    <a href="/" class="w3-bar-item w3-button w3-right w3-text-red "><i class="fa fa-search"></i></a>
-    <a href='/places/new' class="w3-bar-item w3-button w3-right w3-text-red">Add A Place</a>
-    <a href='/places' class="w3-bar-item w3-button w3-right w3-text-red">Suggestions</a>
-    <a href='/meetups' class="w3-bar-item w3-button w3-right w3-text-red"><img id='meetupicon' src= "https://secure.meetup.com/s/img/0/logo/svg/logo--mSwarm.svg"> MeetUps</a></img>
+  <div>
+  <nav class = "w3-display-container w3-content w3-hide-small">
+    <div class="navbar">
+    <a href="/" class="w3-bar-item title"><i class="fa fa-map-marker w3-margin-right"></i>Spaces</a>
+    <a href="/places" class="w3-bar-item"><i class="fa fa-search w3-margin-right"></i>Search Suggestions</a>
+    <a href='/places/new' class="w3-bar-item">Add A Place</a>
+    <a href='/meetups' class="w3-bar-item"><img id='meetupicon' src= "https://secure.meetup.com/s/img/0/logo/svg/logo--mSwarm.svg"> MeetUps</a></img>
     <%- if current_user -%>
-      <a class="w3-bar-item w3-button w3-text-red w3-hover-red" <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </a>
+      <a class="w3-bar-item" <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </a>
     <%- else -%>
-        <a class="w3-bar-item w3-button w3-text-red w3-hover-red" <%= link_to 'Sign Up', new_user_registration_path %></a>
-        <a class="w3-bar-item w3-button w3-text-red w3-hover-red" <%= link_to 'Sign In', new_user_session_path %></a>
+        <a class="w3-bar-item" <%= link_to 'Sign Up', new_user_registration_path %></a>
+        <a class="w3-bar-item" <%= link_to 'Sign In', new_user_session_path %></a>
     <% end %>
-
-    </div>
-
   </nav>
+</div>
 
 
-
-
-  <!-- <%- flash.each do |key, value| -%>
+  <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
     </div>
-  <%- end -%> -->
-
-  <body>
-
-    <h1 class = 'home-header'> <i class="fas fa-plane"></i> </li>
-      Gay Friendly Travel </h1>
-  <div class=" w3-content" style="max-width:1100px;">
-<br/>
-
+  <%- end -%>
 
 
   <%= yield %>

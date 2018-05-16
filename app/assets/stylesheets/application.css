@@ -13,11 +13,14 @@
  *= require foundation_and_overrides
  *= require_self
  *= require_tree
+ *= require_responsive
+ *= require_home_page
 
  */
 body, h1, .grid-container{
   font-family: Century Gothic;
 }
+
 
 #yelp-image {
   width: 18em;
@@ -84,11 +87,6 @@ body, h1, .grid-container{
   height: 2em;
 }
 
-header {
-  background-image: url("images/mountain-air-balloon.jpg");
-  background-repeat: no-repeat;
-  height: 500px;
-}
 
 .page-header {
   text-align: center;
@@ -138,6 +136,7 @@ input[type="checkbox"].switch + div {
 input[type="checkbox"].switch:checked + div {
 	background-color: #57BB00;
 }
+
 
 
 
