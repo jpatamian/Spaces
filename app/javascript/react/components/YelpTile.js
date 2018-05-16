@@ -3,12 +3,15 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const YelpTile = props => {
+  debugger
   return(
     <div className = 'grid-container'>
-      <div className = 'row yelp-data'>
-          <h1>{props.name}</h1>
+      <div className = 'yelp-data'>
+        <h1><a href={props.url}>
+          {props.name}
+        </a></h1>
           <br/>
-          <p>{props.location.display_address}</p>
+          <p>{props.location.address1} {props.location.city}, {props.location.state}</p>
           <img id="yelp-image" src= {props.image} />
     </div>
     </div>

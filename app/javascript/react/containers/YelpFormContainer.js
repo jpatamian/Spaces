@@ -18,8 +18,6 @@ class YelpFormContainer extends Component {
       places: {}
     }
 
-    this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
-    this.handleSearchChange = this.handleSearchChange.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.handleTermChange = this.handleTermChange.bind(this)
@@ -88,22 +86,6 @@ class YelpFormContainer extends Component {
     }
   }
 
-  componentDidMount() {
-   fetch('api/v1/places')
-     .then(response => {
-       if (response.ok) {
-         return response
-       } else {
-         let errorMessage = `${response.status} (${response.statusText})`
-       }
-     })
-     .then(response => response.json())
-     .then(body =>{
-       this.setState( { places: body } )
-     })
-     .catch(error => console.error(`${error.message}`))
-  }
-
 
   handleSubmit(event) {
     event.preventDefault()
@@ -113,26 +95,6 @@ class YelpFormContainer extends Component {
     this.filteredPlaces(formPayload)
   }
 
-  handleSearchChange(event) {
-    debugger
-
-    this.setState({ search: event.target.value })
-  }
-
-  handleSearchSubmit(event) {
-    let formPayload = {search: event.target.value}
-    let searchResults = []
-    let search = formPayload.search.toString().toLowerCase();
-
-    this.state.places.forEach((place) => {
-      if (place["state"].toLowerCase().includes(search)){
-       searchResults.push(place)
-     }
-      this.setState({
-        finalResults: searchResults,
-        search: event.target.value })
-    })
-  }
 
   render() {
     <header className = "header-img"/>
@@ -153,6 +115,7 @@ class YelpFormContainer extends Component {
         name={data.name}
         image={data.image}
         location={data.location}
+        url={data.url}
     />
     })
   return(

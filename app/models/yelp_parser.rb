@@ -33,7 +33,8 @@ class YelpParser
         image: business["image_url"],
         description: business["description"],
         categories: business["categories"],
-        attributes: business["gender_neutral_restrooms"]
+        attributes: business["gender_neutral_restrooms"],
+        url: business["url"]
       }
     end
   end
