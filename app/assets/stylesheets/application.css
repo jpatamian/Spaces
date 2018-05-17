@@ -77,8 +77,16 @@ body {
 
 }
 
+.place-grid-container {
+  display: grid;
+  text-align: center;
+  border: 1px solid;
+  padding: 1em;
+}
+
 .find {
   margin-left: 2em;
+  font-weight: bold;
 }
 
 .grid-container {

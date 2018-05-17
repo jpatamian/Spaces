@@ -64,27 +64,28 @@ class YelpFormContainer extends Component {
     term: '',
     location: '',
     data: [],
+    attributes: null,
     errors: {}})
   }
 
   handleFormSubmit(event) {
 
-    event.preventDefault();
+     event.preventDefault();
 
-    if (this.state.term.trim() != '' &&
-       this.state.location.trim() != '') {
+     if (this.state.term.trim() != '' &&
+        this.state.location.trim() != '') {
 
-      let formPayload = {
-        term: this.state.term,
-        location: this.state.location,
-        attributes: this.state.attributes
+       let formPayload = {
+         term: this.state.term,
+         location: this.state.location,
+         attributes: this.state.attributes
 
-      }
-      this.addSearch(formPayload)
-    }else{
-      alert("Please Fill Out All Fields")
-    }
-  }
+       }
+       this.addSearch(formPayload)
+     }else{
+       alert("Please Fill Out All Fields")
+     }
+   }
 
 
   handleSubmit(event) {
@@ -126,7 +127,8 @@ class YelpFormContainer extends Component {
             <TextField
               content={this.state.term}
               label="Accommodation"
-              name="accommodation"
+              name="Accommodation"
+              placeholder="Accommodation"
               handlerFunction={this.handleTermChange}
             />
           </div>
@@ -135,13 +137,14 @@ class YelpFormContainer extends Component {
             <TextField
               content={this.state.location}
               label="Location"
-              name="location"
+              name="Location"
+              placeholder = "Location"
               handlerFunction={this.handleLocationChange}
             />
           </div>
             <div className="column">
               <div className = "large 4-columns text">
-                <input type="radio" onClick={ this.toggleChange } name="yes" value="yes"/><label>Gender Neutral Restrooms</label>
+                <input type="radio" onClick={ this.toggleChange } name="yes" value="yes"/><label className = 'formtext'>Gender Neutral Restrooms</label>
               </div>
               <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
               <input className="small button secondary" type="submit" value="Submit" />
