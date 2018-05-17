@@ -14,9 +14,10 @@
  *= require_self
  *= require_tree
  *= require_responsive
+ *= require_foundation
  *= require_home_page
  *= require_add_page
- 
+
  */
 body, h1, .grid-container{
   font-family: Century Gothic;

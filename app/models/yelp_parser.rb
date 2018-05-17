@@ -23,6 +23,7 @@ class YelpParser
         headers: {"Authorization" => "Bearer #{ENV["YELP_KEY"]}"}
       }
     )
+    binding.pry 
     @data = response["businesses"].map do |business|
       new_hash = {
         name: business["name"],

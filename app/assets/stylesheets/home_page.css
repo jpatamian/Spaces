@@ -17,35 +17,48 @@
 
 }
 
+.small-6.columns {
+  background-image: url("images/plan2.png");
+  background-repeat: no-repeat;
+  margin-top: 1em;
+  width: 79em;
+  margin-left: 1em;
+  height: 43em;
+  position:absolute;
+
+}
 
 
 .header-img {
   background-image: url("images/header.png");
   background-repeat: no-repeat;
+  height: 500px;
+  width: 79em;
+  margin-left: 1em;
+}
+
+/* .container {
+  width: 1000px;
   height: 700px;
-  margin-left: 7em;
-  margin-right: 7em;
-  width: auto;
-}
+  margin-top: 100px;
+  position:relative;
+} */
 
 
-.yelp-form {
-  top: 26em;
-  opacity: 0.9;
-  right: 24em;
-  text-align: center;
-  box-sizing: border-box;
-   -webkit-box-sizing: border-box;
-   -moz-box-sizing: border-box;
-   border: 1px solid #C2C2C2;
-   box-shadow: 1px 1px 4px #EBEBEB;
-   -moz-box-shadow: 1px 1px 4px #EBEBEB;
-   -webkit-box-shadow: 1px 1px 4px #EBEBEB;
-   border-radius: 3px;
-   -webkit-border-radius: 3px;
-   -moz-border-radius: 3px;
-   padding: 9px;
-   outline: none;
-   width: 37em;
-   background: grey;
+form.yelp-form {
+  top: 23em;
+  margin-left: 3.5em;
+  width: 26em;
+  height: auto;
+  position: relative;
+  z-index: 10;
+
 }
+/*
+.calender-box {
+  margin-left: 38em;
+  margin-top: -16em;
+  background-color: white;
+  width: 30em;
+  padding: 24px;
+}  */
