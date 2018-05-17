@@ -12,9 +12,11 @@ class PlaceFormContainer extends Component {
       state: '',
       country: '',
       zipcode: '',
-      description: ''
+      description: '',
+      reviews: ''
     }
 
+    this.handleReviewChange = this.handleReviewChange.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleAddressChange = this.handleAddressChange.bind(this)
@@ -23,40 +25,12 @@ class PlaceFormContainer extends Component {
     this.handleCountryChange = this.handleCountryChange.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
     this.handleZipcodeChange = this.handleZipcodeChange.bind(this)
-
     this.handleClearForm = this.handleClearForm.bind(this)
-    this.validateName = this.validateName.bind(this)
-    this.validateAddress = this.validateAddress.bind(this)
-
     this.addPlace = this.addPlace.bind(this)
   }
 
-  validateName(name) {
-    // This is not good enough validation but we'll come back to it
-    if(name.trim() === '') {
-      let newError = { body: 'You must enter a name.' }
-      this.setState({ errors: Object.assign(this.state.errors, newError) })
-      return false
-    } else {
-      let errorState = this.state.errors
-      delete errorState.body
-      this.setState({ errors: errorState })
-      return true
-    }
-  }
-
-
-  validateAddress(address) {
-    if(address.trim() === '') {
-      let newError = { title: 'You must enter an address.' }
-      this.setState({ errors: Object.assign(this.state.errors, newError) })
-      return false
-    } else {
-      let errorState = this.state.errors
-      delete errorState.title
-      this.setState({ errors: errorState })
-      return true
-    }
+  handleReviewChange(event) {
+    this.setState({ reviews: event.target.value })
   }
 
   handleClearForm(event) {
@@ -68,6 +42,7 @@ class PlaceFormContainer extends Component {
     state: '',
     country: '',
     description: '',
+    reviews: '',
     errors: {}})
   }
 
@@ -108,7 +83,7 @@ class PlaceFormContainer extends Component {
       credentials: 'same-origin',
       body: JSON.stringify(submission)
     }).then( () => {
-      browserHistory.push('/')
+      browserHistory.push('/places')
     })
   }
 
@@ -116,7 +91,8 @@ class PlaceFormContainer extends Component {
     event.preventDefault();
 
     if (this.state.name.trim() != '' &&
-       this.state.address.trim() != '') {
+       this.state.state.trim() != '' &&
+        this.state.description.trim() != '') {
 
       let formPayload = {
           name: this.state.name,
@@ -125,7 +101,8 @@ class PlaceFormContainer extends Component {
           state: this.state.state,
           country: this.state.country,
           zipcode: this.state.zipcode,
-          description: this.state.description
+          description: this.state.description,
+          reviews: this.state.reviews
       }
       this.addPlace(formPayload)
     }else{
@@ -136,61 +113,91 @@ class PlaceFormContainer extends Component {
   render() {
     return(
       <div>
-        <h1 className = 'add-new' > Add A Suggestion </h1>
-      <div className="row">
-        <div className="columns medium-6">
-          <form className="callout" onSubmit={this.handleFormSubmit}>
-          <TextField
-            content={this.state.name}
-            label="Name"
-            name="name"
-            handlerFunction={this.handleNameChange}
-          />
-          <TextField
-            content={this.state.address}
-            label="Street Name"
-            name="street name"
-            handlerFunction={this.handleAddressChange}
-          />
-          <TextField
-            content={this.state.city}
-            label="City"
-            name="city"
-            handlerFunction={this.handleCityChange}
-          />
-          <TextField
-            content={this.state.state}
-            label="State"
-            name="state"
-            handlerFunction={this.handleStateChange}
-          />
-          <TextField
-            content={this.state.country}
-            label="Country"
-            name="country"
-            handlerFunction={this.handleCountryChange}
-          />
-          <TextField
-            content={this.state.zipcode}
-            label="Zipcode"
-            name="zipcode"
-            handlerFunction={this.handleZipcodeChange}
-          />
-          <TextField
-            content={this.state.description}
-            label="Description"
-            name="description"
-            handlerFunction={this.handleDescriptionChange}
-          />
-
-          <div className="button-group">
-            <button className="button" onClick={this.handleClearForm}>Clear</button>
-            <input className="button" type="submit" value="Submit" />
+        <div className = 'form-header' />
+        <form className="new-form" onSubmit={this.handleFormSubmit}>
+          <div className="row">
+            <div className="columns medium-6 ">
+            <TextField
+              content={this.state.name}
+              label="Name"
+              name="Name"
+              handlerFunction={this.handleNameChange}
+            />
           </div>
-          </form>
-        </div>
+          <div className="columns medium-6 ">
+            <TextField
+              content={this.state.address}
+              label="Street Name"
+              name="Street Name (leave blank if n/a)"
+              handlerFunction={this.handleAddressChange}
+            />
+          </div>
+          <div className="columns medium-6 ">
+
+            <TextField
+              content={this.state.city}
+              label="City"
+              name="City"
+              handlerFunction={this.handleCityChange}
+            />
+          </div>
+          <div className="columns medium-6 ">
+
+            <TextField
+              content={this.state.state}
+              label="State"
+              name="State"
+              handlerFunction={this.handleStateChange}
+            />
+          </div>
+          <div className="columns medium-6 ">
+
+            <TextField
+              content={this.state.country}
+              label="Country"
+              name="Country"
+              handlerFunction={this.handleCountryChange}
+            />
+          </div>
+          <div className="columns medium-6 ">
+
+            <TextField
+              content={this.state.zipcode}
+              label="Zipcode"
+              name="Zipcode (leave blank if n/a)"
+              handlerFunction={this.handleZipcodeChange}
+            />
+          </div>
+          <div className="columns medium-6 ">
+            <label>
+              <textarea
+                type="text"
+                content={this.state.description}
+                placeholder= "Description"
+                name="description"
+                onChange={this.handleDescriptionChange}
+              />
+            </label>
+          </div>
+          <div className="columns medium-6 ">
+
+            <label>
+              <textarea
+                type="text"
+                content={this.state.reviews}
+                placeholder= "Add A Review (optional)"
+                name="Review"
+                onChange={this.handleReviewChange}
+              />
+            </label>
+          </div>
+            </div>
+            <div className="button-group">
+              <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
+              <input className="small button secondary" type="submit" value="Submit" />
+            </div>
+        </form>
       </div>
-    </div>
     )
   }
 }

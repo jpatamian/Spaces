@@ -1,0 +1,21 @@
+.form-header {
+  background-image: url("images/addplace.png");
+  background-repeat: no-repeat;
+  height: 440px;
+  margin-left: 7em;
+  margin-right: 7em;
+  width: auto;
+}
+
+.new-form {
+  text-align: left;
+  padding: 24px;
+  width: 51em;
+  margin-left: 16em;
+  margin-top: -15em
+}
+
+.button-group {
+  margin-top: 2em;
+  margin-left: 38%;
+}

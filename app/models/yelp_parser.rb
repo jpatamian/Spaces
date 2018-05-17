@@ -17,15 +17,13 @@ class YelpParser
   end
 
   def search(term, location, attributes)
-
     response = self.class.get("/businesses/search",
       {
         query: { term: term, location: location, attributes: attributes},
         headers: {"Authorization" => "Bearer #{ENV["YELP_KEY"]}"}
       }
     )
-
-  @data = response["businesses"].map do |business|
+    @data = response["businesses"].map do |business|
       new_hash = {
         name: business["name"],
         location: business["location"],
@@ -38,5 +36,4 @@ class YelpParser
       }
     end
   end
-
 end

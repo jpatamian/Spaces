@@ -22,7 +22,7 @@ class Api::V1::PlacesController < ApplicationController
  private
 
    def place_params
-      params.require(:place).permit(:name, :address, :city, :state, :country, :zipcode, :description)
+      params.require(:place).permit(:name, :address, :city, :state, :country, :zipcode, :description, :reviews)
    end
 
  end

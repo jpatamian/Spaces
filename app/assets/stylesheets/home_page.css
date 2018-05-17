@@ -20,21 +20,16 @@
 
 
 .header-img {
-  background-image: url("images/earth-week-mindful-travel-header.jpg");
+  background-image: url("images/header.png");
   background-repeat: no-repeat;
   height: 700px;
   margin-left: 7em;
+  margin-right: 7em;
   width: auto;
-  z-index: 1;
-
 }
 
-.formtext{
-  color: black
-}
 
 .yelp-form {
-  position: fixed;
   top: 26em;
   opacity: 0.9;
   right: 24em;
@@ -53,7 +48,4 @@
    outline: none;
    width: 37em;
    background: grey;
-   z-index: 2;
-
-
 }
