@@ -72,7 +72,6 @@ class PlaceFormContainer extends Component {
   }
 
   handleNameChange(event) {
-    this.validateName(event.target.value)
     this.setState({ name: event.target.value })
   }
   handleZipcodeChange(event) {
@@ -80,7 +79,6 @@ class PlaceFormContainer extends Component {
   }
 
   handleAddressChange(event) {
-    this.validateAddress(event.target.value)
     this.setState({ address: event.target.value })
   }
 
@@ -102,7 +100,7 @@ class PlaceFormContainer extends Component {
 
   addPlace(submission) {
 
-    fetch(`http://localhost:3000/api/v1/places`, {
+    fetch(`/api/v1/places`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -151,7 +149,7 @@ class PlaceFormContainer extends Component {
           <TextField
             content={this.state.address}
             label="Street Name"
-            name="street"
+            name="street name"
             handlerFunction={this.handleAddressChange}
           />
           <TextField

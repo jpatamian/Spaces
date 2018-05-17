@@ -13,10 +13,22 @@
  *= require foundation_and_overrides
  *= require_self
  *= require_tree
- 
+ *= require_responsive
+ *= require_home_page
+
  */
 body, h1, .grid-container{
   font-family: Century Gothic;
+}
+
+body {
+  margin: 2rem;
+}
+
+.searchbar {
+  width: 22em;
+  margin-left: 33em;
+  margin-top: 3em;
 }
 
 #yelp-image {
@@ -33,13 +45,31 @@ body, h1, .grid-container{
 
 .yelp-button{
   margin-top: 3em;
+
 }
 
+
+
+.fa-heart {
+  color: #ff7b7b;
+
+}
+
+.show-body {
+  margin-left: 10em;
+  margin-right: 14em;
+}
+
+#favorite {
+  margin-left: 41em;
+
+}
 
 .home-header {
   margin-top: 2em;
   margin-left: 4em;
   font-family: Century Gothic;
+
 }
 
 .place-photo {
@@ -47,15 +77,31 @@ body, h1, .grid-container{
 
 }
 
-.find {
-  margin-left: 2em;
-}
-
-.grid-container {
+.place-grid-container {
   display: grid;
   text-align: center;
   border: 1px solid;
   padding: 1em;
+}
+
+.find {
+  margin-left: 2em;
+  font-weight: bold;
+}
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+
+}
+
+.yelp-data {
+  background-color: #D3D3D3;
+  border: 1px solid #7e7e7e;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }
 
 #meetup-logo {
@@ -69,11 +115,6 @@ body, h1, .grid-container{
   height: 2em;
 }
 
-header {
-  background-image: url("images/mountain-air-balloon.jpg");
-  background-repeat: no-repeat;
-  height: 500px;
-}
 
 .page-header {
   text-align: center;
@@ -123,6 +164,9 @@ input[type="checkbox"].switch + div {
 input[type="checkbox"].switch:checked + div {
 	background-color: #57BB00;
 }
+
+
+
 
 input[type="checkbox"].switch + div > div {
 	float: left;

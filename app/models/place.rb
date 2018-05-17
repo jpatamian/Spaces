@@ -6,4 +6,5 @@ class Place < ApplicationRecord
   validates :description, presence: true
 
   has_many :reviews
+  has_many :preferences
 end

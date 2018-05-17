@@ -25,7 +25,6 @@ class ReviewsFormContainer extends Component {
   }
 
   addReview(submission) {
-    debugger
     let placeId = this.props.id
     fetch(`/api/v1/places/${placeId}/reviews`, {
       method: 'POST',

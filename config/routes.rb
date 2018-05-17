@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
   resources :places, only: [:index]
+  resources :favorites, only: [:index]
 
   devise_for :users
+  resources :users
 
   namespace :api do
     namespace :v1  do
       resources :places do
         resources :reviews
       end
+    end
+  end
+
+  namespace :api do
+    namespace :v1  do
+      resources :favorites
     end
   end
 

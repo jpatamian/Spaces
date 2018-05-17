@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { browserHistory, withRouter } from 'react-router'
 import TextField from '../components/TextField'
 import YelpTile from '../components/YelpTile'
+import PlaceTile from '../components/PlaceTile'
 
 class YelpFormContainer extends Component {
   constructor(props) {
@@ -11,7 +12,10 @@ class YelpFormContainer extends Component {
       location: '',
       attributes: null,
       isChecked: null,
-      data: []
+      data: [],
+      search: '',
+      finalResults: [],
+      places: {}
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
@@ -60,29 +64,51 @@ class YelpFormContainer extends Component {
     term: '',
     location: '',
     data: [],
+    attributes: null,
     errors: {}})
   }
 
   handleFormSubmit(event) {
 
-    event.preventDefault();
+     event.preventDefault();
 
-    if (this.state.term.trim() != '' &&
-       this.state.location.trim() != '') {
+     if (this.state.term.trim() != '' &&
+        this.state.location.trim() != '') {
 
-      let formPayload = {
-        term: this.state.term,
-        location: this.state.location,
-        attributes: this.state.attributes
+       let formPayload = {
+         term: this.state.term,
+         location: this.state.location,
+         attributes: this.state.attributes
 
-      }
-      this.addSearch(formPayload)
-    }else{
-      alert("Please Fill Out All Fields")
+       }
+       this.addSearch(formPayload)
+     }else{
+       alert("Please Fill Out All Fields")
+     }
+   }
+
+
+  handleSubmit(event) {
+    event.preventDefault()
+    let formPayload = {
+      search: this.state.search
     }
+    this.filteredPlaces(formPayload)
   }
 
+
   render() {
+    <header className = "header-img"/>
+    let finalResults = this.state.finalResults.map(place => {
+      return(
+        <PlaceTile
+          key = {place.id}
+          id = {place.id}
+          name = {place.name}
+          state = {place.state}
+        />
+      )
+    })
 
     let data = this.state.data.map(data => {
       return <YelpTile
@@ -90,50 +116,49 @@ class YelpFormContainer extends Component {
         name={data.name}
         image={data.image}
         location={data.location}
+        url={data.url}
     />
     })
   return(
     <div>
-      <p className = 'find'> Find Your Space </p>
-    <div className="row">
-      <div className="columns medium-6">
-        <form className="callout" onSubmit={this.handleFormSubmit}>
-        <TextField
-          content={this.state.term}
-          label="Accommodation"
-          name="accommodation"
-          handlerFunction={this.handleTermChange}
-        />
-        <TextField
-          content={this.state.location}
-          label="Location"
-          name="location"
-          handlerFunction={this.handleLocationChange}
-        />
-        <div className="switch-container">
-            <label>
-                <input ref="switch" checked={ this.state.isChecked } onClick={ this.toggleChange } className="switch" type="checkbox" />
-                <div>
-                    <span><g className="icon icon-toolbar grid-view"></g></span>
-                    <span><g className="icon icon-toolbar ticket-view"></g></span>
-                    <div></div>
-                </div>
-            </label>
+      <div className = 'header-img'>
+        <form className = " yelp-form row" onSubmit={this.handleFormSubmit}>
+          <div className="large-6 columns text">
+            <TextField
+              content={this.state.term}
+              label="Accommodation"
+              name="Accommodation"
+              placeholder="Accommodation"
+              handlerFunction={this.handleTermChange}
+            />
           </div>
-        <div className="yelp-button">
-          <p id='clickgn'> Gender Neutral Restrooms </p>
-          <button className="button small" onClick={this.handleClearForm}>Clear</button>
-          <input className="button small" type="submit" value="Submit" />
-        </div>
+          <div className="large-6 columns text">
+
+            <TextField
+              content={this.state.location}
+              label="Location"
+              name="Location"
+              placeholder = "Location"
+              handlerFunction={this.handleLocationChange}
+            />
+          </div>
+            <div className="column">
+              <div className = "large 4-columns text">
+                <input type="radio" onClick={ this.toggleChange } name="yes" value="yes"/><label className = 'formtext'>Gender Neutral Restrooms</label>
+              </div>
+              <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
+              <input className="small button secondary" type="submit" value="Submit" />
+            </div>
         </form>
+
       </div>
-    </div>
       <div className="columns">
         <div className="yelp-feed">
           <ul> {data} </ul>
         </div>
+        <ul> {finalResults} </ul>
       </div>
-  </div>
+    </div>
   )}
 }
 
