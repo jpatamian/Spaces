@@ -69,23 +69,21 @@ class YelpFormContainer extends Component {
   }
 
   handleFormSubmit(event) {
+   event.preventDefault();
 
-     event.preventDefault();
+   if (this.state.term.trim() != '' &&
+      this.state.location.trim() != '') {
 
-     if (this.state.term.trim() != '' &&
-        this.state.location.trim() != '') {
-
-       let formPayload = {
-         term: this.state.term,
-         location: this.state.location,
-         attributes: this.state.attributes
-
-       }
-       this.addSearch(formPayload)
-     }else{
-       alert("Please Fill Out All Fields")
+     let formPayload = {
+       term: this.state.term,
+       location: this.state.location,
+       attributes: this.state.attributes
      }
+     this.addSearch(formPayload)
+   }else{
+     alert("Please Fill Out All Fields")
    }
+ }
 
 
   handleSubmit(event) {
@@ -121,7 +119,7 @@ class YelpFormContainer extends Component {
     })
   return(
     <div>
-      <div className = 'header-img'>
+      <div className = 'header-img'/>
         <form className = " yelp-form row" onSubmit={this.handleFormSubmit}>
           <div className="large-6 columns text">
             <TextField
@@ -144,14 +142,13 @@ class YelpFormContainer extends Component {
           </div>
             <div className="column">
               <div className = "large 4-columns text">
-                <input type="radio" onClick={ this.toggleChange } name="yes" value="yes"/><label className = 'formtext'>Gender Neutral Restrooms</label>
+                <input type="checkbox" onClick={ this.toggleChange } name="yes" value="yes"/><label className = 'formtext'>Gender Neutral Restrooms</label>
               </div>
               <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
               <input className="small button secondary" type="submit" value="Submit" />
             </div>
         </form>
 
-      </div>
       <div className="columns">
         <div className="yelp-feed">
           <ul> {data} </ul>

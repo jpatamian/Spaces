@@ -4,7 +4,7 @@ class Place < ApplicationRecord
   validates :state, presence: true
   validates :country, presence: true
   validates :description, presence: true
-
+  
   has_many :reviews
   has_many :preferences
 end
