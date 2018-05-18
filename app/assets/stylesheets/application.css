@@ -35,9 +35,10 @@ body {
 }
 
 #yelp-image {
-  width: 18em;
-  height: 13em;
-
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
 }
 
 #clickgn{
@@ -45,12 +46,6 @@ body {
   font-size: 13px;
   line-height: 1.5;
 }
-
-.yelp-button{
-  margin-top: 3em;
-
-}
-
 
 
 .fa-heart {
@@ -96,15 +91,15 @@ body {
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 10px;
+  bottom: 15em;
 
 }
 
-.yelp-data {
-  background-color: #D3D3D3;
-  border: 1px solid #7e7e7e;
-  padding: 20px;
-  font-size: 30px;
+.grid-item {
+  padding: 10px;
+  font-size: 15px;
   text-align: center;
+
 }
 
 #meetup-logo {

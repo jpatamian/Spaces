@@ -38,6 +38,5 @@ class YelpParser
       }
     end
   end
-  binding.pry
 
 end

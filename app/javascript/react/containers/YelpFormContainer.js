@@ -115,13 +115,19 @@ class YelpFormContainer extends Component {
         image={data.image}
         location={data.location}
         url={data.url}
+        categories={data.categories}
     />
     })
   return(
     <div>
       <div className = 'header-img'/>
-      <div className= "small-6 columns plan">
-        <div className = " container">
+
+      <div className = "img-row">
+        <div className = "img-column">
+          <div className = "plan"/>
+            <div className = "plan2"/>
+        </div>
+      </div>
         <form className = "yelp-form" onSubmit={this.handleFormSubmit}>
           <TextField
             content={this.state.term}
@@ -144,18 +150,8 @@ class YelpFormContainer extends Component {
             <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
             <input className="small button secondary" type="submit" value="Submit" />
           </form>
-        </div>
-      </div>
 
-      <div className= "small-4 columns">
-      {/* <div className= "callout secondary container">
-          <h1> something goes here </h1>
-      </div> */}
-      <div className= "yelp-feed">
-          <ul> {data} </ul>
-        <ul> {finalResults} </ul>
-      </div>
-      </div>
+              <div className= "yelp-container row">{data}</div>
   </div>
   )}
 }
