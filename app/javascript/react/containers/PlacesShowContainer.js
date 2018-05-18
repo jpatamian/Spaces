@@ -158,7 +158,7 @@ class PlacesShowContainer extends Component {
           </div>
         </div>
       </div>
-    <div className = 'review-container'>
+    <div>
         <ReviewsIndexContainer
           reviews={this.state.reviews}
         />

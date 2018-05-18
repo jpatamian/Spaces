@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
   resources :places, only: [:index]
-  resources :favorites, only: [:index]
 
   devise_for :users
   resources :users
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1  do
-      resources :favorites
+      resources :favorites, only: [:index, :show, :create]
     end
   end
 
@@ -31,6 +30,7 @@ Rails.application.routes.draw do
       post '/yelps', to: "yelps#search"
     end
   end
+
 
 
   get "*path", to: "static_pages#index"
