@@ -120,7 +120,7 @@ class YelpFormContainer extends Component {
   return(
     <div>
       <div className = 'header-img'/>
-      <div className= "small-6 columns">
+      <div className= "small-6 columns plan">
         <div className = " container">
         <form className = "yelp-form" onSubmit={this.handleFormSubmit}>
           <TextField

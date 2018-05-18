@@ -6,7 +6,7 @@ class PlacesIndexContainer extends Component {
   constructor(props) {
       super(props)
       this.state = {
-        allPlaces: [],
+        allPlaces: {},
         places: [],
         search: '',
         finalResults: []
@@ -15,6 +15,7 @@ class PlacesIndexContainer extends Component {
     }
 
   componentDidMount() {
+
     fetch('/api/v1/places')
       .then(response => {
         if (response.ok) {
@@ -28,8 +29,9 @@ class PlacesIndexContainer extends Component {
         this.setState( {
           allPlaces: body,
           places: body
-        } )
+        })
       })
+
     .catch(error => console.error(`fetch failed  ${error.message}`))
   }
 
@@ -59,6 +61,7 @@ class PlacesIndexContainer extends Component {
           id = {place.id}
           name = {place.name}
           state = {place.state}
+          description = {place.description}
         />
       )
     })
@@ -70,30 +73,38 @@ class PlacesIndexContainer extends Component {
           id = {place.id}
           name = {place.name}
           state = {place.state}
+          description = {place.description}
         />
       )
     })
 
     return(
-
-      <div className="index-container">
-       <div className="columns large-12 small-12 medium-12">
-        <div className="searchbar small-12 large-12">
+      <div>
+        <div className = "searchbar-container"/>
+          <div className = "callout secondary">
            <input
+             className="searchbar"
              id="search"
              type='text'
              value={this.state.search}
              onChange={this.handleChange}
              placeholder="Search Cities or States"
            />
-        </div>
        </div>
-        <div className = "row">
-      <div className="columns">
-        {places}
-      </div>
-      </div>
-    </div>
+       <div className = "tablecontainer ">
+       <table className = "hover stack">
+         <thead>
+         <tr>
+           <th width="200">Name</th>
+           <th width="100" >State</th>
+           <th>Description</th>
+         </tr>
+       </thead>
+     </table>
+     {places}
+     </div>
+   </div>
+
     )
   }
 }
