@@ -14,9 +14,11 @@
  *= require_self
  *= require_tree
  *= require_responsive
+ *= require_foundation
  *= require_home_page
  *= require_add_page
- 
+ *= require_place_index_page
+
  */
 body, h1, .grid-container{
   font-family: Century Gothic;
@@ -33,9 +35,10 @@ body {
 }
 
 #yelp-image {
-  width: 18em;
-  height: 13em;
-
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
 }
 
 #clickgn{
@@ -43,12 +46,6 @@ body {
   font-size: 13px;
   line-height: 1.5;
 }
-
-.yelp-button{
-  margin-top: 3em;
-
-}
-
 
 
 .fa-heart {
@@ -91,18 +88,18 @@ body {
 }
 
 .grid-container {
-  display: inline-grid;
+  display: grid;
   grid-template-columns: auto auto auto;
   padding: 10px;
+  bottom: 15em;
 
 }
 
-.yelp-data {
-  background-color: #D3D3D3;
-  border: 1px solid #7e7e7e;
-  padding: 20px;
-  font-size: 30px;
+.grid-item {
+  padding: 10px;
+  font-size: 15px;
   text-align: center;
+
 }
 
 #meetup-logo {
@@ -128,65 +125,4 @@ body {
 	transform: translate3d( -50%, -50%, 0 );
   margin-left: 20px;
 
-}
-
-input[type="checkbox"].switch  {
-	position: absolute;
-	opacity: 0;
-}
-
-input[type="checkbox"].switch + div {
-	vertical-align: middle;
-	width: 22px;
-	height: 22px;
-	border-radius: 999px;
-	background-color: #00B0F2;
-	-webkit-transition-duration: .4s;
-	transition-duration: .4s;
-	-webkit-transition-property: background-color, box-shadow;
-	transition-property: background-color, box-shadow;
-	cursor: pointer;
-}
-
-input[type="checkbox"].switch + div span {
-	position: absolute;
-    font-size: 1.6rem;
-    color: white;
-    margin-top: 12px;
-}
-
-
-input[type="checkbox"].switch + div {
-	width: 47px;
-	height: 22px;
-}
-
-
-input[type="checkbox"].switch:checked + div {
-	background-color: #57BB00;
-}
-
-
-
-
-input[type="checkbox"].switch + div > div {
-	float: left;
-	width: 22px; height: 22px;
-	border-radius: inherit;
-	background: #ffffff;
-	-webkit-transition-timing-function: cubic-bezier(1,0,0,1);
-	transition-timing-function: cubic-bezier(1,0,0,1);
-	-webkit-transition-duration: 0.4s;
-	transition-duration: 0.4s;
-	-webkit-transition-property: transform, background-color;
-	transition-property: transform, background-color;
-	pointer-events: none;
-	margin-top: 1px;
-	margin-left: 1px;
-}
-
-input[type="checkbox"].switch:checked + div > div {
-	-webkit-transform: translate3d(22px, 0, 0);
-	transform: translate3d(20px, 0, 0);
-	background-color: #ffffff;
 }

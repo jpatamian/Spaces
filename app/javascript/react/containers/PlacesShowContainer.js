@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PlaceShow from '../components/PlaceShow'
-import MapContainer from "./MapContainer";
 import ReviewsIndexContainer from './ReviewsIndexContainer'
 import TextField from '../components/TextField'
 

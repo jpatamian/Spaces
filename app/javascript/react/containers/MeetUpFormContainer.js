@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { browserHistory, withRouter } from 'react-router'
 import TextField from '../components/TextField'
 import MeetupTile from '../components/MeetUpTile'
+import YelpTile from '../components/YelpTile'
+import YelpFormContainer from './YelpFormContainer'
 
 class MeetUpFormContainer extends Component {
   constructor(props) {

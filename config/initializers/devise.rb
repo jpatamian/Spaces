@@ -48,6 +48,7 @@ Devise.setup do |config|
   # if you set :request_keys to [:subdomain], :subdomain will be used on authentication.
   # The same considerations mentioned for authentication_keys also apply to request_keys.
   # config.request_keys = []
+  config.authentication_keys = [ :login ]
 
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
@@ -77,7 +78,8 @@ Devise.setup do |config|
 
   # The realm used in Http Basic Authentication. 'Application' by default.
   # config.http_authentication_realm = 'Application'
-
+  config.reset_password_keys = [ :username ]
+  config.confirmation_keys = [ :username ]
   # It will change confirmation, password recovery and other workflows
   # to behave the same regardless if the e-mail provided was right or wrong.
   # Does not affect registerable.

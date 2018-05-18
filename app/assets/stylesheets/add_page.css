@@ -3,7 +3,6 @@
   background-repeat: no-repeat;
   height: 440px;
   margin-left: 7em;
-  margin-right: 7em;
   width: auto;
 }
 
@@ -11,8 +10,8 @@
   text-align: left;
   padding: 24px;
   width: 51em;
-  margin-left: 16em;
-  margin-top: -15em
+  margin-left: 15em;
+  margin-top: -11em
 }
 
 .button-group {

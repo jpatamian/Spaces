@@ -4,14 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <%= stylesheet_link_tag 'application', media: 'all' %>
-
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_link_tag "https://use.fontawesome.com/releases/v5.0.13/css/all.css" %>
     <%= stylesheet_link_tag "https://www.w3schools.com/w3css/4/w3.css" %>
-    <%=stylesheet_link_tag"https://fonts.googleapis.com/css?family=Tangerine" %>
-
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
 
   <%= csrf_meta_tags %>
@@ -35,11 +31,11 @@
 </div>
 
 
-  <%- flash.each do |key, value| -%>
+  <!-- <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>
     </div>
-  <%- end -%>
+  <%- end -%> -->
 
 
   <%= yield %>

@@ -115,47 +115,44 @@ class YelpFormContainer extends Component {
         image={data.image}
         location={data.location}
         url={data.url}
+        categories={data.categories}
     />
     })
   return(
     <div>
       <div className = 'header-img'/>
-        <form className = " yelp-form row" onSubmit={this.handleFormSubmit}>
-          <div className="large-6 columns text">
-            <TextField
-              content={this.state.term}
-              label="Accommodation"
-              name="Accommodation"
-              placeholder="Accommodation"
-              handlerFunction={this.handleTermChange}
-            />
-          </div>
-          <div className="large-6 columns text">
 
-            <TextField
-              content={this.state.location}
-              label="Location"
-              name="Location"
-              placeholder = "Location"
-              handlerFunction={this.handleLocationChange}
-            />
-          </div>
-            <div className="column">
-              <div className = "large 4-columns text">
-                <input type="checkbox" onClick={ this.toggleChange } name="yes" value="yes"/><label className = 'formtext'>Gender Neutral Restrooms</label>
-              </div>
-              <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
-              <input className="small button secondary" type="submit" value="Submit" />
-            </div>
-        </form>
-
-      <div className="columns">
-        <div className="yelp-feed">
-          <ul> {data} </ul>
+      <div className = "img-row">
+        <div className = "img-column">
+          <div className = "plan"/>
+            <div className = "plan2"/>
         </div>
-        <ul> {finalResults} </ul>
       </div>
-    </div>
+        <form className = "yelp-form" onSubmit={this.handleFormSubmit}>
+          <TextField
+            content={this.state.term}
+            label="Accommodation"
+            name="Accommodation"
+            placeholder="Accommodation"
+            handlerFunction={this.handleTermChange}
+          />
+          <TextField
+            content={this.state.location}
+            label="Location"
+            name="Location"
+            placeholder = "Location"
+            handlerFunction={this.handleLocationChange}
+          />
+
+          <input type="checkbox" onClick={ this.toggleChange } value="yes"/>
+          <label>Gender Neutral Restrooms</label>
+        <br/>
+            <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
+            <input className="small button secondary" type="submit" value="Submit" />
+          </form>
+
+              <div className= "yelp-container row">{data}</div>
+  </div>
   )}
 }
 
