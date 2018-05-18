@@ -3,7 +3,7 @@ class Api::V1::FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render json: Favorite.all
+    render json: current_user.favorited_places
   end
 
   def show

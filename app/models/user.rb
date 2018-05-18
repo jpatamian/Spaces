@@ -7,9 +7,13 @@ class User < ApplicationRecord
   attr_writer :login
 
 
-def self.find_for_database_authentication conditions
-  where(login: conditions[:email]).first || where(email: conditions[:email]).first
-end
+  has_many :favorites 
+  has_many :favorited_places, through: :favorites, source: :place, class_name: "Place"
+
+
+  def self.find_for_database_authentication conditions
+    where(login: conditions[:email]).first || where(email: conditions[:email]).first
+  end
 
  has_many :reviews
  validates :username, presence: :true, uniqueness: { case_sensitive: false }
