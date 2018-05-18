@@ -19,20 +19,3 @@ const YelpTile = props => {
 }
 
 export default YelpTile;
-
-{/* <div class="card">
-  <img src="assets/img/generic/rectangle-1.jpg">
-  <div class="card-section">
-    <p>This is a simple card with an image.</p>
-  </div>
-</div>
-
-<!-- image has padding -->
-<div class="card">
-  <div class="card-section">
-    <img src="assets/img/generic/rectangle-1.jpg">
-  </div>
-  <div class="card-section">
-    <p>This is a simple card with an image inside a `.card-section`.</p>
-  </div>
-</div> */}

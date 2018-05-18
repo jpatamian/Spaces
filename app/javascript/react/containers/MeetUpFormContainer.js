@@ -68,22 +68,20 @@ class MeetUpFormContainer extends Component {
   render() {
 
     let data = this.state.data.map(data => {
-
       return <MeetupTile
         key={data.id}
-        name={data.event}
+        event={data.event}
         city = {data.city}
         date = {data.date}
         description = {data.description}
+        link = {data.link}
     />
     })
   return(
     <div>
-      <img id= 'meetup-logo' src="https://secure.meetup.com/s/img/0/logo/svg/logo--script.svg" />
-      <h1 className = 'add-new' > </h1>
-    <div className="row">
-      <div className="columns medium-6">
-        <form className="callout" onSubmit={this.handleFormSubmit}>
+      <header className = 'meetuppic'/>
+      <div className=" meetuprow medium-6 columns">
+        <form className="meetupform" onSubmit={this.handleFormSubmit}>
         <TextField
           content={this.state.text}
           label="Category"
@@ -97,16 +95,13 @@ class MeetUpFormContainer extends Component {
           handlerFunction={this.handleCityChange}
         />
         <div className="button-group">
-          <button className="button" onClick={this.handleClearForm}>Clear</button>
-          <input className="button" type="submit" value="Submit" />
+          <button className="tiny button secondary" onClick={this.handleClearForm}>Clear</button>
+          <input className="tiny button secondary" type="submit" value="Search" />
         </div>
         </form>
-      </div>
     </div>
-      <div className="columns">
-        <div className="meetup-feed">
-          <ul> {data} </ul>
-        </div>
+        <div className="yelp-container meet-feed row">
+          {data}
       </div>
   </div>
   )}

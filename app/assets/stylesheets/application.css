@@ -34,6 +34,11 @@ body {
   margin-top: 3em;
 }
 
+#meetuprow {
+  width: 26em;
+  margin-left: 66%;
+}
+
 #yelp-image {
   width: 30%;
   background-color: white;
@@ -102,10 +107,17 @@ body {
 
 }
 
-#meetup-logo {
-  width: 12em;
-  margin-left: 18em;
-  margin-top: 0em;
+.grid-item h1 {
+  font-size: 20px;
+}
+
+.meetuppic {
+  background-image: url("images/meetups.png");
+  background-repeat: no-repeat;
+  height: 475px;
+  width: 100%;
+  margin-left: 10em;
+  margin-right: 10em;
 }
 
 #meetupicon {
@@ -113,10 +125,23 @@ body {
   height: 2em;
 }
 
+.meetuprow {
+  top: 2em;
+  margin-left: 23%;
+  width: 36em;
+}
+
 
 .page-header {
   text-align: center;
 }
+
+.meet-feed {
+  margin-top: 15em;
+  margin-left: 14em;
+
+}
+
 
 
 .switch-container {

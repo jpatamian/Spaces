@@ -16,11 +16,11 @@ class MeetupParser
     @data = response["events"].map do |event|
       new_hash = {
         id: event["id"],
-        event: event["name"],
-        city: event["city"],
+        event: event["group"]["name"],
+        link: event["link"],
+        city: event["group"]["localized_location"],
         date: event["local_date"],
-        description: Sanitize.clean(event["description"],
-        group: event["group"])
+        description: Sanitize.clean(event["description"])
       }
     end
   end
