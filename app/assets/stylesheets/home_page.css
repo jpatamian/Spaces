@@ -18,14 +18,12 @@
 }
 
 .small-6.columns.plan {
-  background-image: url("images/plan2.png");
+  background-image: url("images/plan4.png");
   background-repeat: no-repeat;
-  margin-top: 1em;
-  width: 79em;
   margin-left: 1em;
-  height: 43em;
-  position:absolute;
- opacity: 0.7;
+  opacity: .9;
+  margin-top: 1em;
+  height: 40em;
 
 }
 
