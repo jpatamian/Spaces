@@ -9,18 +9,25 @@ const ReviewsIndexContainer = (props) => {
         <ReviewTile
           key={review.id}
           body={review.review}
-          createdAt={review.created_at}
           userEmail={review.user_email}
         />
       )
     })
     return(
-      <div>{tiles}</div>
-    )
-  } else {
-    return(
-      <div>There Are No Reviews</div>
-    )
+      <div className = "row ">
+        <div className = "review-container ">
+          <table className = "review-table">
+            <thead>
+              <tr>
+                <th width="200">Review</th>
+                <th width="100">Review By</th>
+              </tr>
+            </thead>
+          </table>
+          {tiles}
+        </div>
+      </div>
+      )
   }
 }
 

@@ -5,15 +5,14 @@ const ReviewTile = (props) => {
   let date = Date(props.createdAt)
 
   return(
-    <div className="review-tile">
-        <p className="review-body">{props.body}</p>
-        <div className="review-group">
-        <div className="review-user">Posted by: {email}</div>
-        <div className="review-date">At {date}</div>
-        <p></p>
-    </div>
-
-    </div>
+    <table className = "review-container">
+      <tbody>
+        <tr>
+        <td width="200">{props.body}</td>
+        <td width="100">{email}</td>
+        </tr>
+    </tbody>
+  </table>
   )
 }
 

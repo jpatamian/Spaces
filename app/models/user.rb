@@ -7,18 +7,6 @@ class User < ApplicationRecord
   attr_writer :login
 
 
-  before_create :create_login
-
-  def create_login
-    email = self.email.split(/@/)
-    login_taken = User.where(login: email[0]).first
-    self.login = if login_taken
-                   self.email
-                 else
-                   email[0]
-                 end
-  end
-
 def self.find_for_database_authentication conditions
   where(login: conditions[:email]).first || where(email: conditions[:email]).first
 end
