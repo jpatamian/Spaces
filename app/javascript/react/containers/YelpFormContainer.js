@@ -147,11 +147,10 @@ class YelpFormContainer extends Component {
           <input type="checkbox" onClick={ this.toggleChange } value="yes"/>
           <label>Gender Neutral Restrooms</label>
         <br/>
-            <button className="small button secondary" onClick={this.handleClearForm}>Clear</button>
-            <input className="small button secondary" type="submit" value="Submit" />
+            <button className=" button secondary" onClick={this.handleClearForm}>Clear</button>
+            <input className=" button secondary" type="submit" value="Submit" />
           </form>
-
-              <div className= "yelp-container row">{data}</div>
+            <div className= "yelp-container row">{data}</div>
   </div>
   )}
 }

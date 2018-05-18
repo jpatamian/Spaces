@@ -130,33 +130,39 @@ class PlacesShowContainer extends Component {
 
     return(
       <div>
-      <p id= 'favorite'> Add To Favorites <i onClick={this.handleClick} className={this.changeColor()} aria-hidden="true"></i></p>
+      <header className = 'showpic'/>
       <div className = 'show-body'>
 
-      <h2>{this.state.place.name}</h2>
+      <div className = 'container'>
+        <h2>{this.state.place.name}</h2>
+        <p id= 'favorite'> Add To Favorites <i onClick={this.handleClick} className={this.changeColor()} aria-hidden="true"></i></p>
 
-      <div className="place-info">
-        <p className="address">Location: {this.state.place.address} {this.state.place.city}, {this.state.place.state} {this.state.place.zip}</p>
-        <p className="description">Description: {this.state.place.description}</p>
-      </div>
 
-      <div className = "review-form">
-        <TextField
-          content={this.state.body}
-          label="Add A Review"
-          name="Add A Review"
-          handlerFunction={this.handleBodyChange}
-        />
+        <div className="place-info">
+          <p className="address">Location: {this.state.place.address} {this.state.place.city}, {this.state.place.state} {this.state.place.zip}</p>
+          <p className="description">Description: {this.state.place.description}</p>
+        </div>
 
-        <div className="button-group">
-          <button className="button" onClick={this.handleClearForm}>Clear</button>
-          <button className="button" onClick={this.handleSubmit}>Submit</button>
+
+        <div className = "review-form">
+          <TextField
+            content={this.state.body}
+            label="Add A Review"
+            name="Add A Review"
+            handlerFunction={this.handleBodyChange}
+          />
+
+          <div className="button-group">
+            <button className="button" onClick={this.handleClearForm}>Clear</button>
+            <button className="button" onClick={this.handleSubmit}>Submit</button>
+          </div>
         </div>
       </div>
-
-      <ReviewsIndexContainer
-        reviews={this.state.reviews}
-      />
+    <div className = 'review-container'>
+        <ReviewsIndexContainer
+          reviews={this.state.reviews}
+        />
+        </div>
       </div>
     </div>
     )

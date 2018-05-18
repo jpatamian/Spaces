@@ -5,12 +5,13 @@
 
 .navbar {
   overflow: hidden;
-  font-family: Century Gothic;
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+
 }
 
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 18px;
   text-decoration: none;
   padding: 9px 29px;
 
@@ -34,7 +35,7 @@
 .plan {
   background-image: url(images/gays.png);
   background-repeat: no-repeat;
-  margin-left: 11em;
+  margin-left: 34em;
   margin-top: 1em;
   height: 29em;
   width: 51em;
@@ -58,7 +59,7 @@
   margin-top: 9px;
   width: -webkit-fill-available;
   height: 33em;
-  margin-left: 3em;
+  margin-left: 7em;
 
 }
 
@@ -68,14 +69,21 @@
   background-repeat: no-repeat;
   height: 500px;
   width: 79em;
-  margin-left: 1em;
+  margin-left: 3em;
 }
 
 form.yelp-form {
   bottom: 25em;
-  margin-left: 37.6em;
+  margin-left: 42em;
   width: 24em;
   height: auto;
   position: relative;
   z-index: 10;
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+
+}
+
+form.yelp-form label {
+  font-size: 17px;
+
 }

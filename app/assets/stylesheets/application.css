@@ -21,7 +21,8 @@
 
  */
 body, h1, .grid-container{
-  font-family: Century Gothic;
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+
 }
 
 body {
@@ -47,7 +48,8 @@ body {
 }
 
 #clickgn{
-  font-family: Verdana,sans-serif;
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+
   font-size: 13px;
   line-height: 1.5;
 }
@@ -64,14 +66,14 @@ body {
 }
 
 #favorite {
-  margin-left: 41em;
 
 }
 
 .home-header {
   margin-top: 2em;
   margin-left: 4em;
-  font-family: Century Gothic;
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+
 
 }
 
