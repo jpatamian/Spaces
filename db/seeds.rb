@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user2 = User.create!(email: "testyyyyy@testy.com", password: "guest123456", id: 19)
+user2 = User.create!(username: "tester", email: "testyyyyy@testy.com", password: "guest123456", id: 19)
 
 place1 = Place.create!(name: "Club Cafe", address: "209 Columbus Ave", city: "Boston", state: "MA", country: "US", zipcode: '02116', description: "Happening gay-friendly cabaret, piano bar, dance club & classy New American bistro.")
 
