@@ -10,6 +10,21 @@
   margin-top: 4em;
 }
 
+.trip-header {
+  background-image: url("images/mytrip.png");
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 79em;
+  margin-left: 21%;
+
+}
+
+.yelp-container {
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+  text-align: center;
+
+}
+
 .container {
 
   margin-left: 6em;
@@ -18,6 +33,10 @@
 
 }
 
+.table {
+  margin-left: 5em;
+margin-right: 5em;
+}
 
 .show-body {
 

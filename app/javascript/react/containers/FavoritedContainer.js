@@ -47,9 +47,23 @@ render() {
   })
 
   return(
-  <div>
-     {favorites}
+    <div>
+    <header className = "trip-header"/>
+    <div className = "tablecontainer ">
+      <h1> Saved </h1>
+    <table className = "hover stack">
+      <thead>
+      <tr>
+        <th width="200">Name</th>
+        <th width="100" >State</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    </table>
+    {favorites}
     </div>
+  </div>
+
     )
   }
 }

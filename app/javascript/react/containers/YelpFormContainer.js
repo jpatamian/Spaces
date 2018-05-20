@@ -149,9 +149,20 @@ class YelpFormContainer extends Component {
         <br/>
             <button className=" button secondary" onClick={this.handleClearForm}>Clear</button>
             <input className=" button secondary" type="submit" value="Submit" />
-          </form>
-            <div className= "yelp-container row">{data}</div>
-  </div>
+      </form>
+        <div className= "yelp-container row">
+          <table className = "hover stack">
+            <thead>
+            <tr>
+              <th width = "400">Name</th>
+              <th width = "400">Location</th>
+              <th width = "400" >Category</th>
+            </tr>
+          </thead>
+        </table>
+        {data}
+        </div>
+      </div>
   )}
 }
 
