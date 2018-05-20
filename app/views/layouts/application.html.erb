@@ -21,6 +21,8 @@
     <a href="/places" class="w3-bar-item"><i class="fa fa-search w3-margin-right"></i>Search Suggestions</a>
     <a href='/places/new' class="w3-bar-item">Add A Place</a>
     <a href='/meetups' class="w3-bar-item"><img id='meetupicon' src= "https://secure.meetup.com/s/img/0/logo/svg/logo--mSwarm.svg"> MeetUps</a></img>
+    <a href='/favorites' class="w3-bar-item"> My Trip</a>
+
     <%- if current_user -%>
       <a class="w3-bar-item" <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </a>
     <%- else -%>

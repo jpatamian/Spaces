@@ -11,7 +11,7 @@
 
 .navbar a {
   float: left;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
   padding: 9px 29px;
 
@@ -26,10 +26,17 @@
 
 }
 
+.tablecontainer h1 {
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+
+}
+
 .yelp-container.row {
-    margin-top: -14em;
-    margin-left: 16em;
-    margin-right: 16em;
+  margin-top: -14em;
+  width: 47em;
+
+  /* margin-left: 16em; */
+  /* margin-right: 16em; */
 }
 
 .plan {
