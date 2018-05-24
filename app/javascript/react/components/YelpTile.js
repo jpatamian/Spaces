@@ -8,11 +8,11 @@ const YelpTile = props => {
       <table className = 'yelp-table'>
         <tbody>
         <tr>
-          <td width = "400"> <img id="yelp-image" src= {props.image} />
-        <a href={props.url}>
+          <td width = "400">
+          <img id="yelp-image" src= {props.image} />
           <br/>
-          {props.name}
-        </a></td>
+        <a href={props.url}> {props.name}</a>
+        </td>
           <td width = "400">{props.location.address1} {props.location.city}, {props.location.state}</td>
           <td width = "400" >{props.categories}</td>
         </tr>
